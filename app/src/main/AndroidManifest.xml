@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thomas.photonavi">
 
+    <permission
+        android:name="com.example.thomas.photonavi.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".IntroActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,17 +29,18 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBkaJOkW5Rkom3cDMNJyrAySibb7vFaol0"/>
+            android:value="AIzaSyBkaJOkW5Rkom3cDMNJyrAySibb7vFaol0" />
 
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" />
+        <!-- <activity
+            android:name=".IntroActivity"
+            android:label="@string/title_activity_intro" /> -->
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
     </application>
-
-    <permission
-        android:name="com.example.thomas.photonavi.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature"/>
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 </manifest>
