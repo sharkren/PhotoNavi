@@ -32,15 +32,20 @@
             android:value="AIzaSyBkaJOkW5Rkom3cDMNJyrAySibb7vFaol0" />
 
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" />
-        <!-- <activity
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--
+             <activity
             android:name=".IntroActivity"
-            android:label="@string/title_activity_intro" /> -->
+            android:label="@string/title_activity_intro" />
+        -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
+        <activity
+            android:name=".MemberActivity"
+            android:label="@string/title_activity_member"></activity>
     </application>
 
 </manifest>
