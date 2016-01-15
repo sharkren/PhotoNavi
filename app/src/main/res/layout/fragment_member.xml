@@ -6,7 +6,156 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.thomas.photonavi.MemberActivityFragment">
+    tools:context="com.example.thomas.photonavi.MemberActivityFragment"
+    android:background="#CDDC39">
 
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView" >
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:id="@+id/tvEmail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            android:id="@+id/tvPass"
+            android:layout_marginTop="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 확인"
+            android:id="@+id/tvPassConfirm"
+            android:layout_marginTop="36dp"
+            android:layout_below="@+id/tvPass"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etEmail"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:hint="이메일" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPass"
+            android:hint="비밀번호"
+            android:layout_below="@+id/etEmail"
+            android:layout_alignEnd="@+id/etEmail" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPassConfirm"
+            android:layout_alignTop="@+id/tvPassConfirm"
+            android:layout_alignEnd="@+id/etPass"
+            android:hint="비밀번호확인" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화번호"
+            android:id="@+id/tvTel"
+            android:layout_below="@+id/etPassConfirm"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="생년월일"
+            android:id="@+id/tvBirth"
+            android:layout_below="@+id/tvTel"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="네비게이션"
+            android:id="@+id/tvUseNavi"
+            android:layout_below="@+id/tvBirth"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="34dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결혼여부"
+            android:id="@+id/tvMarry"
+            android:layout_marginTop="37dp"
+            android:layout_below="@+id/tvUseNavi"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림수신여부"
+            android:id="@+id/tvAlarm"
+            android:layout_below="@+id/tvMarry"
+            android:layout_alignEnd="@+id/tvPassConfirm"
+            android:layout_marginTop="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자동추천차단"
+            android:id="@+id/tvAutoFriend"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/tvAlarm"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증번호"
+            android:id="@+id/tvAuthNum"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/tvAutoFriend"
+            android:layout_alignStart="@+id/tvAlarm" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:id="@+id/btnAuthCheck"
+            android:layout_alignBottom="@+id/tvAuthNum"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:id="@+id/btnSaveUserInfo"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/tvAuthNum" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:id="@+id/btnCancle"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/etPassConfirm" />
+    </RelativeLayout>
 
 </RelativeLayout>
