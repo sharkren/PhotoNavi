@@ -5,4 +5,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_member">MemberActivity</string>
+    <string name="emailCheck"><u>이메일 주소 중복 체크</u></string>
+    <string name="sendAuthNum"><u>이메일로 인증번호 발송</u></string>
+    <string name="findUserInfo"><u>이메일주소 / 비밀번호를 잊으셨나요?</u></string>
 </resources>
