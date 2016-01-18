@@ -1,4 +1,4 @@
-package com.example.thomas.photonavi;
+package com.example.thomas.photonavi.fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -22,6 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.thomas.photonavi.GeoDegree;
+import com.example.thomas.photonavi.R;
 import com.skp.Tmap.TMapAddressInfo;
 import com.skp.Tmap.TMapData;
 import com.skp.Tmap.TMapTapi;

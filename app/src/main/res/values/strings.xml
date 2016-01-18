@@ -8,4 +8,10 @@
     <string name="emailCheck"><u>이메일 주소 중복 체크</u></string>
     <string name="sendAuthNum"><u>이메일로 인증번호 발송</u></string>
     <string name="findUserInfo"><u>이메일주소 / 비밀번호를 잊으셨나요?</u></string>
+    <string name="title_activity_content">거기 어디야?</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_contents">ContentsActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

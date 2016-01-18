@@ -1,11 +1,12 @@
-package com.example.thomas.photonavi;
+package com.example.thomas.photonavi.activity;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.thomas.photonavi.R;
 
 public class LoginActivity extends Activity {
 
@@ -19,8 +20,8 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                startActivity(new Intent(getApplication(), MainActivity.class)); // 로딩이 끝난후 이동할 Activity
+                startActivity(new Intent(getApplication(), ContentsActivity.class)); // 로딩이 끝난후 이동할 Activity
+                //startActivity(new Intent(getApplication(), MainActivity.class)); // 로딩이 끝난후 이동할 Activity
                 LoginActivity.this.finish();
             }
         });
