@@ -39,7 +39,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etEmail"
-                android:hint="이메일주소" />
+                android:hint="이메일주소"
+                style="@style/Theme.AppCompat.Light" />
         </LinearLayout>
 
         <LinearLayout
@@ -77,7 +78,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etPassword"
-                android:hint="비밀번호" />
+                android:hint="비밀번호"
+                style="@style/Theme.AppCompat.Light" />
         </LinearLayout>
 
         <LinearLayout
@@ -98,7 +100,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etPasswordConfirm"
-                android:hint="비밀번호확인" />
+                android:hint="비밀번호확인"
+                style="@style/Theme.AppCompat.Light" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,7 +122,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/etCellNum"
-                android:hint="전화번호" />
+                android:hint="전화번호"
+                style="@style/Theme.AppCompat.Light" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -150,7 +154,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/etBirth"
-                android:hint="생년월일" />
+                android:hint="생년월일"
+                style="@style/Theme.AppCompat.Light" />
 
         </LinearLayout>
 
@@ -181,7 +186,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etNavi"
-                android:hint="자주쓰는네이게이션" />
+                android:hint="자주쓰는네이게이션"
+                style="@style/Theme.AppCompat.Light" />
 
         </LinearLayout>
 
@@ -264,7 +270,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/etAuthNum"
-            android:hint="인증번호6자리" />
+            android:hint="인증번호6자리"
+            style="@style/Theme.AppCompat.Light" />
 
         <Button
             android:layout_width="wrap_content"

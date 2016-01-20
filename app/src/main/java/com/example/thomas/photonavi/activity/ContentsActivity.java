@@ -1,10 +1,13 @@
 package com.example.thomas.photonavi.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.thomas.photonavi.R;
 
@@ -40,6 +43,14 @@ public class ContentsActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        ImageButton imgBtnNew = (ImageButton) findViewById(R.id.imgBtnNew);
+        imgBtnNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplication(), RegistTextActivity.class)); // 로딩이 끝난후 이동할 Activity
             }
         });
 

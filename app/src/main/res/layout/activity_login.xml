@@ -43,7 +43,8 @@
             android:id="@+id/etEmail"
             android:hint="이메일주소"
             android:layout_marginTop="10dp"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            style="@style/Theme.AppCompat.Light" />
 
         <EditText
             android:layout_width="match_parent"
@@ -52,7 +53,8 @@
             android:hint="비밀번호"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            style="@style/Theme.AppCompat.Light" />
 
     </LinearLayout>
 
