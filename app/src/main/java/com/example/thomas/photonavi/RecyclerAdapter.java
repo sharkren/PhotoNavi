@@ -120,4 +120,49 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
     }
 
+    /*
+    // 이미지 사이즈 최적화
+    public static Bitmap bitmapFromUrl (String imageURL){
+    try {
+        byte[] datas = getImageDataFromUrl( new URL(imageURL) );
+
+        // CHECK IMAGE SIZE BEFORE LOAD
+        int scale = 1;
+        BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inJustDecodeBounds = true;
+        BitmapFactory.decodeByteArray(datas, 0, datas.length, opts);
+
+        // IF IMAGE IS BIGGER THAN MAX, DOWN SAMPLING
+        if (opts.outHeight > MAX_IMAGE_SIZE || opts.outWidth > MAX_IMAGE_SIZE) {
+            scale = (int)Math.pow(2, (int)Math.round(Math.log(MAX_IMAGE_SIZE/(double)Math.max(opts.outHeight, opts.outWidth)) / Math.log(0.5)));
+        }
+            opts.inJustDecodeBounds = false;
+            opts.inSampleSize = scale;
+
+        return BitmapFactory.decodeByteArray(datas, 0, datas.length, opts);
+    } catch (IOException e) {
+        return null;
+    }
+}
+
+public static byte[] getImageDataFromUrl (URL url) {
+    byte[] datas = {};
+
+    try {
+        HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+        connection.setDoInput(true);
+        connection.connect();
+
+        InputStream input = connection.getInputStream();
+        datas = IOUtils.toByteArray(input);
+
+        input.close();
+        connection.disconnect();
+    } catch (IOException e) {
+    }
+
+    return datas;
+}
+
+     */
 }

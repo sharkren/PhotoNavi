@@ -29,6 +29,7 @@ public class ContentsActivity extends AppCompatActivity {
         final PagerAdapter adapter = new com.example.thomas.photonavi.PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -46,14 +47,54 @@ public class ContentsActivity extends AppCompatActivity {
             }
         });
 
+        // 사진 등록 버튼
+
         ImageButton imgBtnNew = (ImageButton) findViewById(R.id.imgBtnNew);
+
         imgBtnNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplication(), RegistTextActivity.class)); // 로딩이 끝난후 이동할 Activity
+                //startActivity(new Intent(getApplication(), RegistActivity.class)); // 로딩이 끝난후 이동할 Activity
+                startActivity(new Intent(getApplication(), CameraActivity.class));
             }
         });
 
     }
+
+    /*
+    @Override
+    public void onClick(View v) {
+
+        Log.d("Map","버튼 아이디는 " + v.getId());
+
+        switch (v.getId()) {
+            case R.id.imgBtnNew:
+                // 사진을 갤러리에서 선택할지 촬영할지 선택
+                AlertDialog.Builder builder = new AlertDialog.Builder(ContentsActivity.this);
+
+                builder.setMessage("사진을 선택하세요").setCancelable(false)
+                        .setPositiveButton("갤러리", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                startActivity(new Intent(getApplication(), RegistActivity.class));
+                            }
+                        })
+                        .setNegativeButton("촬영", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                startActivity(new Intent(getApplication(), CameraActivity.class));
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                break;
+
+
+            default:
+                break;
+        }
+    }
+    */
+
 
 }

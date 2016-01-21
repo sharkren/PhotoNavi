@@ -13,9 +13,22 @@
     <string name="title_activity_contents">ContentsActivity</string>
     <string name="join_member">회원가입</string>
     <string name="regist_text">글쓰기</string>
+    <string name="regist_photo">사진등록</string>
+    <string name="regist_movie">동영상등록</string>
+
     <string name="regist_done">등록하기</string>
+    <string name="gps_alert_msg">"GPS설정이 꺼져있습니다.\n" +
+                    "활성화 하시겠습니까?\n" +
+                    "활성화 후 버튼을 한번더 클릭해주세요")</string>
+
+    <string name="intro_message">intro_message</string>
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_regist_text">RegistTextActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
 </resources>
