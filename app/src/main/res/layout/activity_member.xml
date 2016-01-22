@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#b2dfdb"
+    android:background="#eeeeee"
     tools:context=".activity.MemberActivity"
     android:orientation="vertical"
     android:baselineAligned="false">
@@ -29,18 +29,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이메일"
+                android:text="사용자ID"
                 android:id="@+id/tvEmail"
-                android:layout_marginRight="70dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                android:layout_marginRight="60dp"
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginLeft="10dp" />
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etEmail"
                 android:hint="이메일주소"
-                style="@style/Theme.AppCompat.Light" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginRight="10dp"
+                android:inputType="textEmailAddress" />
         </LinearLayout>
 
         <LinearLayout
@@ -55,7 +57,7 @@
                 android:text="@string/emailCheck"
                 android:id="@+id/tvEmailCheck"
                 android:gravity="center"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:singleLine="false" />
         </LinearLayout>
@@ -71,15 +73,17 @@
                 android:text="비밀번호"
                 android:id="@+id/tvPassword"
                 android:layout_marginRight="60dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginLeft="10dp" />
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etPassword"
                 android:hint="비밀번호"
-                style="@style/Theme.AppCompat.Light" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginRight="10dp"
+                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,15 +97,17 @@
                 android:text="비밀번호확인"
                 android:id="@+id/tvPasswordConfirm"
                 android:layout_marginRight="35dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginLeft="10dp" />
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etPasswordConfirm"
                 android:hint="비밀번호확인"
-                style="@style/Theme.AppCompat.Light" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginRight="10dp"
+                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
@@ -115,25 +121,18 @@
                 android:text="전화번호"
                 android:id="@+id/tvCellPhone"
                 android:layout_marginRight="60dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginLeft="10dp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etCellNum"
-                android:hint="전화번호"
-                style="@style/Theme.AppCompat.Light" />
+                android:hint="전화번호 &apos;-&apos; 없이"
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginRight="10dp"
+                android:inputType="phone" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText5" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText6" />
         </LinearLayout>
 
         <LinearLayout
@@ -147,15 +146,17 @@
                 android:text="생년월일"
                 android:id="@+id/tvBirth"
                 android:layout_marginRight="60dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginLeft="10dp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etBirth"
                 android:hint="생년월일"
-                style="@style/Theme.AppCompat.Light" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginRight="10dp"
+                android:clickable="true" />
 
         </LinearLayout>
 
@@ -171,7 +172,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -179,15 +181,18 @@
                 android:text="사용네비게이션"
                 android:id="@+id/tvNavigation"
                 android:layout_marginRight="20dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                style="@style/Theme.AppCompat.Light"
+                android:layout_marginLeft="10dp" />
 
-            <EditText
-                android:layout_width="fill_parent"
+            <Spinner
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/etNavi"
-                android:hint="자주쓰는네이게이션"
-                style="@style/Theme.AppCompat.Light" />
+                android:id="@+id/spNavigation"
+                android:layout_marginRight="10dp"
+                style="@style/Theme.AppCompat.Light"
+                android:spinnerMode="dropdown"
+                android:prompt="@string/prompt" />
+
 
         </LinearLayout>
 
@@ -196,58 +201,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+
+            <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="알람수신여부"
-                android:id="@+id/tvAlarmYn"
-                android:layout_marginRight="40dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
+                android:id="@+id/swAlarm"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="예"
-                android:id="@+id/rbAlarm"
-                android:checked="true" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아니요"
-                android:id="@+id/radioButton2"
-                android:checked="false" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
+            <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="자동추천여부"
-                android:id="@+id/tvAutoFind"
-                android:layout_marginRight="40dp"
-                android:textSize="15dp"
-                android:textColor="#080808" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="예"
-                android:id="@+id/radioButton3"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아니요"
-                android:id="@+id/radioButton4"
-                android:checked="false" />
+                android:id="@+id/swAuto"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -263,15 +236,18 @@
             android:text="인증번호"
             android:id="@+id/tvAuthNum"
             android:layout_marginRight="60dp"
-            android:textSize="15dp"
-            android:textColor="#080808" />
+            style="@style/Theme.AppCompat.Light"
+            android:layout_marginLeft="10dp" />
+
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/etAuthNum"
             android:hint="인증번호6자리"
-            style="@style/Theme.AppCompat.Light" />
+            style="@style/Theme.AppCompat.Light"
+            android:layout_weight="1"
+            android:inputType="number" />
 
         <Button
             android:layout_width="wrap_content"
@@ -282,7 +258,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="wrap_content"
@@ -297,6 +273,7 @@
             android:id="@+id/btnJoinCancle"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true" />
+
     </RelativeLayout>
 
 </LinearLayout>

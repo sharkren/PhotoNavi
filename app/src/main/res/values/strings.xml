@@ -10,11 +10,12 @@
     <string name="findUserInfo"><u>이메일주소 / 비밀번호를 잊으셨나요?</u></string>
     <string name="title_activity_content">거기 어디야?</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_contents">ContentsActivity</string>
+    <string name="title_activity_contents">WhereAreYou?</string>
     <string name="join_member">회원가입</string>
     <string name="regist_text">글쓰기</string>
     <string name="regist_photo">사진등록</string>
     <string name="regist_movie">동영상등록</string>
+    <string name="prompt">네비게이션 선택</string>
 
     <string name="regist_done">등록하기</string>
     <string name="gps_alert_msg">"GPS설정이 꺼져있습니다.\n" +

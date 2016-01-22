@@ -21,9 +21,8 @@ public class IntroActivity extends Activity {
     private class splashhandler implements Runnable{
         public void run() {
 
-            startActivity(new Intent(getApplication(), LoginActivity.class)); // 로딩이 끝난후 이동할 Activity
-            //startActivity(new Intent(getApplication(), MainActivity.class)); // 로딩이 끝난후 이동할 Activity
-            IntroActivity.this.finish(); // 로딩페이지 Activity Stack에서 제거
+            startActivity(new Intent(getApplication(), LoginActivity.class)); // 인트로가 끝난후 이동할 Activity
+            IntroActivity.this.finish(); // 인트로 Activity Stack에서 제거
         }
     }
 

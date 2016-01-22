@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#CDDC39"
+    android:background="#009688"
     tools:context=".activity.LoginActivity"
     android:orientation="vertical"
     android:weightSum="1">
@@ -21,13 +21,13 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="거기 어디야?"
+            android:text="Where are you?"
             android:id="@+id/tvAppTitle"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="40dp"
-            android:textColor="#444141"
-            android:layout_marginTop="100dp"
+            android:textSize="40sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp" />
     </LinearLayout>
 
@@ -51,8 +51,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/etPassword"
             android:hint="비밀번호"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:inputType="textPassword"
             style="@style/Theme.AppCompat.Light" />
 
@@ -76,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/findUserInfo"
+            android:textColor="#FFFFFF"
             android:id="@+id/textView3"
             android:gravity="center" />
     </LinearLayout>

@@ -55,5 +55,22 @@ public class friendContents extends Fragment {
 
         return friView;
     }
+/*
+    @Override
+    public void onDestroy() {
+        recycleView(getView().findViewById(R.id.image));
 
+    }
+
+    private void recycleView(View view) {
+        if(view != null) {
+            Drawable bg = view.getBackground();
+            if(bg != null) {
+                bg.setCallback(null);
+                ((BitmapDrawable)bg).getBitmap().recycle();
+                view.setBackground(null);
+            }
+        }
+    }
+*/
 }

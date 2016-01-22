@@ -56,4 +56,25 @@ public class totalContents extends Fragment {
 
         return totView;
     }
+    /*
+
+    Fragment에서 onDestroy()를 호출해봐야 ViewPager를 포함하고있는 호스트 액티비티가 종료되야 반환됨
+
+    @Override
+    public void onDestroy() {
+        recycleView(getView().findViewById(R.id.recyclerview));
+
+    }
+
+    private void recycleView(View view) {
+        if(view != null) {
+            Drawable bg = view.getBackground();
+            if(bg != null) {
+                bg.setCallback(null);
+                ((BitmapDrawable)bg).getBitmap().recycle();
+                view.setBackground(null);
+            }
+        }
+    }
+    */
 }

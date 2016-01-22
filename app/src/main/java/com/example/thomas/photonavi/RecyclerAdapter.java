@@ -2,7 +2,8 @@ package com.example.thomas.photonavi;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -44,14 +45,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Recycler_item item = items.get(position);
-        Drawable drawable = context.getResources().getDrawable(item.getImage());
+        //Drawable drawable = context.getResources().getDrawable(item.getImage());
 
-        holder.image.setBackground(drawable);
+        /*
+        // 이 방법은 리소스를 직접 이미지 뷰에 바인딩하여 이미지에 사용된 메모리 영역을
+        // 초기화 할 수 없다. 따라서 대용량 이미지를 사용하면 OOM을 유발시킨다.
+        holder.image.setBackground(context.getResources().getDrawable(item.getImage(),null));
+        */
+
+        // 이 방법은 new로 복사본을 새로 생성해서 사용해야 메모리도 적게 먹고
+        // recycle도 할수 있어서 OutOfMemoryError를 예방할 수 있다
+        holder.image.setBackground(new BitmapDrawable(context.getResources(),
+                BitmapFactory.decodeResource(context.getResources(), item.getImage())));
 
         //new DisplayImageFromURL((ImageView) view.findViewById(R.id.image))
         //        .execute("http://www.tmonews.com/wp-content/uploads/2012/10/androidfigure.jpg");
-
-
 
         holder.title.setText(item.getTitle());
         holder.location.setText("대한민국 어딘가..(향후 상세주소로 변경)");

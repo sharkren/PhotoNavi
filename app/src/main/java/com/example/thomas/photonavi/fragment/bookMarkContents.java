@@ -55,5 +55,4 @@ public class bookMarkContents extends Fragment {
 
         return bookView;
     }
-
 }

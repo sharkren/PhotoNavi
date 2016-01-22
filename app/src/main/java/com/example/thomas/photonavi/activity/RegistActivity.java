@@ -82,13 +82,32 @@ public class RegistActivity extends AppCompatActivity {
 
         imgPhoto =  (ImageView)findViewById(R.id.imgRegistPhoto);
         imgPhoto.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
-                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, REQ_CODE_SELECT_IMAGE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegistActivity.this);
+
+                builder.setMessage("사진을 선택하세요").setCancelable(false)
+                        .setPositiveButton("갤러리", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Intent.ACTION_PICK);
+                                intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+                                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                startActivityForResult(intent, REQ_CODE_SELECT_IMAGE);
+
+                            }
+                        })
+                        .setNegativeButton("촬영", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                startActivityForResult(cameraIntent,REQ_CODE_SELECT_IMAGE);
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
 
             }
         });
@@ -108,13 +127,21 @@ public class RegistActivity extends AppCompatActivity {
     }
 
     private static void recycleBitmap(ImageView iv) {
+
         Drawable d = iv.getDrawable();
+
+
         if (d instanceof BitmapDrawable) {
             Bitmap b = ((BitmapDrawable)d).getBitmap();
             b.recycle();
-        } // 현재로서는 BitmapDrawable 이외의 drawable 들에 대한 직접적인 메모리 해제는 불가능하다.
+        }
 
+        /*
+        2016-01-22
+        Question : 왜 Drawable 객체의 Callback 함수 호출시 오류가 발생하는가?
+        Answer :
         d.setCallback(null);
+         */
     }
 
 
@@ -122,6 +149,8 @@ public class RegistActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Log.d("Map", "결과코드 " + resultCode);
+        Log.d("Map", "요청코드 " + requestCode);
         // Gallary에서 이미지를 선택하면 요청코드와 결과코드로 정상 여부 판단
         if (requestCode == REQ_CODE_SELECT_IMAGE && resultCode == RESULT_OK && null != data) {
             final Uri selPhotoUri = data.getData();
@@ -134,7 +163,6 @@ public class RegistActivity extends AppCompatActivity {
             final int columnIndex = imageCursor.getColumnIndex(filePathColumn[0]);
             final String imagePath = imageCursor.getString(columnIndex);
             imageCursor.close();
-
 
             // 비트맵 이미지 처리
             // 이미지를 메모리에 생성하지 않고 이미지의 기본정보(width, height) 정보를 얻어와
@@ -186,8 +214,6 @@ public class RegistActivity extends AppCompatActivity {
                 // 이미지뷰에 방향정보 수정된 이미지 할당
                 imgPhoto.setImageBitmap(rotatedBitmap);
             }
-
-
         }
     }
 
@@ -223,7 +249,6 @@ public class RegistActivity extends AppCompatActivity {
         }
         else {
             // GPS가 활성일 경우 현재 위치로 주소 얻어오기
-
             // provider 기지국||GPS 를 통해서 받을건지 알려주는 Stirng 변수
             // minTime 최소한 얼마만의 시간이 흐른후 위치정보를 받을건지 시간간격을 설정 설정하는 변수
             // minDistance 얼마만의 거리가 떨어지면 위치정보를 받을건지 설정하는 변수
@@ -268,7 +293,6 @@ public class RegistActivity extends AppCompatActivity {
         // 위치정보는 아래 메서드를 통해서 전달된다.
         @Override
         public void onLocationChanged(Location location) {
-            // appendText("onLocationChanged()가 호출되었습니다");
 
             latitude = location.getLatitude();
             longitude = location.getLongitude();

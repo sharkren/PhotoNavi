@@ -3,6 +3,8 @@ package com.example.thomas.photonavi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.example.thomas.photonavi.fragment.bookMarkContents;
 import com.example.thomas.photonavi.fragment.friendContents;
@@ -12,7 +14,7 @@ import com.example.thomas.photonavi.fragment.totalContents;
 /**
  * Created by thomas on 2016-01-18.
  */
-public class PagerAdapter extends FragmentStatePagerAdapter{
+public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
@@ -43,6 +45,16 @@ public class PagerAdapter extends FragmentStatePagerAdapter{
                 return null;
         }
     }
+
+    /*
+     */
+    @Override
+    public void destroyItem(View collection, int position, Object o) {
+        View view = (View)o;
+        ((ViewPager) collection).removeView(view);
+        view = null;
+    }
+
 
     @Override
     public int getCount() {
