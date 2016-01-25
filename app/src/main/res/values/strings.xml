@@ -8,20 +8,16 @@
     <string name="emailCheck"><u>이메일 주소 중복 체크</u></string>
     <string name="sendAuthNum"><u>이메일로 인증번호 발송</u></string>
     <string name="findUserInfo"><u>이메일주소 / 비밀번호를 잊으셨나요?</u></string>
-    <string name="title_activity_content">거기 어디야?</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_contents">WhereAreYou?</string>
     <string name="join_member">회원가입</string>
     <string name="regist_text">글쓰기</string>
     <string name="regist_photo">사진등록</string>
     <string name="regist_movie">동영상등록</string>
     <string name="prompt">네비게이션 선택</string>
-
+    <string name="nagivation">네비게이션</string>
+    <string name="like">좋아요</string>
+    <string name="bookmark">북마크</string>
     <string name="regist_done">등록하기</string>
-    <string name="gps_alert_msg">"GPS설정이 꺼져있습니다.\n" +
-                    "활성화 하시겠습니까?\n" +
-                    "활성화 후 버튼을 한번더 클릭해주세요")</string>
-
     <string name="intro_message">intro_message</string>
     <string name="picture">Picture</string>
     <string name="description_info">Info</string>

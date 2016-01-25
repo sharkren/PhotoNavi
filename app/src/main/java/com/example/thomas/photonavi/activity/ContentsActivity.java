@@ -22,7 +22,7 @@ public class ContentsActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("전체"));
         tabLayout.addTab(tabLayout.newTab().setText("내꺼"));
         tabLayout.addTab(tabLayout.newTab().setText("친구"));
-        tabLayout.addTab(tabLayout.newTab().setText("스크랩"));
+        tabLayout.addTab(tabLayout.newTab().setText("북마크"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

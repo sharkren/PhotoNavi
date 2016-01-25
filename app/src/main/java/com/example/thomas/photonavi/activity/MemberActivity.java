@@ -13,7 +13,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.thomas.photonavi.R;
 
@@ -92,8 +91,7 @@ public class MemberActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MemberActivity.this, adspin.getItem(position) + "을 선택 했습니다.",
-                        Toast.LENGTH_SHORT).show();
+
             }
 
             public void onNothingSelected(AdapterView<?> parent) {

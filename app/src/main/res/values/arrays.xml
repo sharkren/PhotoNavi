@@ -1,6 +1,7 @@
 <!--?xml version="1.0" encoding="utf-8"?-->
 <resources>
     <string-array name="navigateion">
+        <item>네비게이션을 선택해주세요</item>
         <item>TMap</item>
         <item>올레네비</item>
         <item>맵피</item>

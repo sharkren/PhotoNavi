@@ -24,7 +24,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical">
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -32,23 +33,51 @@
                     android:id="@+id/imgBtnNavi"
                     android:background="@drawable/btn_navi"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nagivation"
+                    android:id="@+id/textView6"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imgBtnNavi"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp" />
+
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imgBtnLike"
+                    android:background="@drawable/btn_like"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/imgBtnNavi"
-                    android:layout_marginStart="35dp"
-                    android:background="@drawable/btn_like" />
+                    android:layout_toEndOf="@+id/textView6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/like"
+                    android:id="@+id/textView7"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imgBtnLike"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imgBtnBook"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/imgBtnLike"
-                    android:layout_marginStart="35dp"
+                    android:layout_toEndOf="@+id/textView7"
                     android:background="@drawable/btn_book" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bookmark"
+                    android:id="@+id/textView8"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_alignTop="@+id/textView6"
+                    android:layout_toEndOf="@+id/imgBtnBook" />
 
             </RelativeLayout>
 
@@ -57,14 +86,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text=""/>
+                android:text="주소가 들어갈 자리"/>
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="ddd"/>
+                android:text="제목"/>
 
         </LinearLayout>
 
