@@ -24,17 +24,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/email"
                 android:id="@+id/tvEmail"
                 android:layout_marginLeft="5dp"
-                android:textColor="#ef6c00" />
+                android:textColor="#FF9800" />
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etEmail"
                 android:hint="이메일주소"
-                style="@style/Theme.AppCompat.Light"
+                style="@style/AppTheme"
                 android:inputType="textEmailAddress"
                 android:layout_marginBottom="5dp"
                 android:textColor="#9e9e9e" />
@@ -48,15 +48,15 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:singleLine="false"
-                android:textColor="#ef6c00" />
+                android:textColor="#FF9800" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password"
+                android:text="@string/password"
                 android:id="@+id/tvPassword"
                 android:layout_marginLeft="5dp"
-                android:textColor="#ef6c00"
+                android:textColor="#FF9800"
                 android:layout_marginTop="5dp" />
 
             <EditText
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/etPassword"
                 android:hint="비밀번호"
-                style="@style/Theme.AppCompat.Light"
+                style="@style/AppTheme"
                 android:inputType="textPassword"
                 android:textColor="#9e9e9e" />
 
@@ -73,45 +73,45 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/etPasswordConfirm"
                 android:hint="비밀번호확인"
-                style="@style/Theme.AppCompat.Light"
+                style="@style/AppTheme"
                 android:inputType="textPassword"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:textColor="#9e9e9e" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="전화번호"
+                android:text="@string/cellPhone"
                 android:id="@+id/tvCellPhone"
                 android:layout_marginLeft="5dp"
-                android:textColor="#ef6c00" />
+                android:textColor="#FF9800" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etCellNum"
                 android:hint="전화번호 &apos;-&apos; 없이"
-                style="@style/Theme.AppCompat.Light"
+                style="@style/AppTheme"
                 android:inputType="phone"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:textColor="#9e9e9e" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="생년월일"
+                android:text="@string/birth"
                 android:id="@+id/tvBirth"
                 android:layout_marginLeft="5dp"
-                android:textColor="#ef6c00" />
+                android:textColor="#FF9800" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etBirth"
-                android:hint="생년월일"
-                style="@style/Theme.AppCompat.Light"
+                android:hint=""
+                style="@style/AppTheme"
                 android:clickable="true"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:textColor="#9e9e9e" />
 
             <LinearLayout
@@ -124,22 +124,22 @@
                 <Switch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="알람수신여부"
+                    android:text="@string/alarmYn"
                     android:id="@+id/swAlarm"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:layout_marginRight="10dp"
-                    android:textColor="#ef6c00" />
+                    android:textColor="#FF9800" />
 
                 <Switch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="자동추천여부"
+                    android:text="@string/autoFriendYn"
                     android:id="@+id/swAuto"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
-                    android:textColor="#ef6c00" />
+                    android:textColor="#FF9800" />
             </LinearLayout>
 
             <Spinner
@@ -149,25 +149,30 @@
                 style="@style/Theme.AppCompat.Light"
                 android:spinnerMode="dropdown"
                 android:prompt="@string/prompt"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="회원가입"
+                android:text="@string/join_member"
                 android:id="@+id/btnJoin"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#FF9800"
+                android:background="@drawable/button_border"
+                android:layout_marginBottom="5dp" />
 
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="취소하기"
+                android:text="@string/cancel"
                 android:id="@+id/btnJoinCancle"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FF9800"
+                android:background="@drawable/button_border" />
 
         </LinearLayout>
 

@@ -6,8 +6,8 @@
         <!-- <item name="colorPrimary">@color/colorPrimary</item> -->
         <item name="colorPrimary">#009688</item>
         <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#fb8c00</item>
-        <item name="colorControlNormal">#009688</item>
+        <item name="colorAccent">#9E9E9E</item>
+        <item name="colorControlNormal">#9E9E9E</item>
 
     </style>
 
@@ -21,3 +21,4 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
+

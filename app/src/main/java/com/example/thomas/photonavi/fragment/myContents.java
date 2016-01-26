@@ -1,10 +1,13 @@
 package com.example.thomas.photonavi.fragment;
 
 
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +25,7 @@ import java.util.List;
  */
 public class myContents extends Fragment {
 
-
+    private View myView;
     public myContents() {
         // Required empty public constructor
     }
@@ -53,6 +56,29 @@ public class myContents extends Fragment {
 
         recyclerView.setAdapter(new RecyclerAdapter(getActivity().getApplicationContext(),items,R.layout.fragment_my_contents));
         return myView;
+    }
+
+    @Override
+    public void onDestroy() {
+
+        Log.d("Map", "myContents onDestroy() called");
+        Log.d("Map", "myContents onDestroy() totView [" + myView +"]");
+        if (myView != null) {
+            recycleView(myView.findViewById(R.id.recyclerview));
+        }
+        super.onDestroy();
+    }
+
+    private void recycleView(View view) {
+        if(view != null) {
+            Drawable bg = view.getBackground();
+
+            if(bg != null) {
+                bg.setCallback(null);
+                ((BitmapDrawable)bg).getBitmap().recycle();
+                view.setBackground(null);
+            }
+        }
     }
 
 }

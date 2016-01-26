@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#009688"
+    android:background="#FFFFFF"
     tools:context=".activity.LoginActivity"
     android:orientation="vertical"
     android:weightSum="1">
@@ -21,62 +21,73 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Where are you?"
+            android:text="@string/app_title"
             android:id="@+id/tvAppTitle"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="40sp"
-            android:textColor="#FFFFFF"
+            android:textColor="#FF9800"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edge">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:id="@+id/textView6"
+            android:textColor="#FF9800"
+            android:layout_marginLeft="5dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etEmail"
-            android:hint="이메일주소"
-            android:layout_marginTop="10dp"
             android:inputType="textEmailAddress"
-            style="@style/Theme.AppCompat.Light" />
+            android:textColor="#757575"
+            android:layout_marginBottom="10dp"
+            style="@style/AppTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:id="@+id/textView7"
+            android:textColor="#FF9800"
+            android:layout_marginLeft="5dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etPassword"
-            android:hint="비밀번호"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
             android:inputType="textPassword"
-            style="@style/Theme.AppCompat.Light" />
-
+            android:textColor="#757575"
+            style="@style/AppTheme" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="로그인"
+            android:text="@string/login"
             android:id="@+id/btnLogin"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_border"
+            android:textColor="#FF9800"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:singleLine="false" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/findUserInfo"
-            android:textColor="#FFFFFF"
+            android:textColor="#FF9800"
             android:id="@+id/textView3"
             android:gravity="center" />
     </LinearLayout>
@@ -89,10 +100,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="회원가입"
+            android:text="@string/join_member"
             android:id="@+id/btnJoinMember"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
+            android:background="@drawable/button_border"
+            android:textColor="#FF9800"
+            android:singleLine="false"
+            android:textSize="15dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

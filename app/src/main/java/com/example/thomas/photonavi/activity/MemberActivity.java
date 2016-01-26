@@ -43,7 +43,7 @@ public class MemberActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(getSupportActionBar().DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(mCustomView);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFF009688));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));
 
         Button btnJoin = (Button) findViewById(R.id.btnJoin);
         btnJoin.setOnClickListener(new View.OnClickListener() {

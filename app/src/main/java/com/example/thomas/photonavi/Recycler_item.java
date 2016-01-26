@@ -5,14 +5,14 @@ package com.example.thomas.photonavi;
  */
 public class Recycler_item {
 
-    int image;
+    int imageResId;
     String title;
     String address;
     Float latitude;
     Float longitude;
 
-    int getImage(){
-        return this.image;
+    int getImageResId(){
+        return this.imageResId;
     }
     String getTitle(){
         return this.title;
@@ -20,7 +20,7 @@ public class Recycler_item {
 
 
     public Recycler_item(int image, String title){
-        this.image = image;
+        this.imageResId = image;
         this.title = title;
     }
 

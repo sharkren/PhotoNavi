@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/contents_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.ContentsActivity">
 
@@ -13,22 +13,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:background="?attr/colorPrimary"
-        android:elevation="6dp"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        android:fillViewport="false" />
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="#FFFFFF"
+        android:fillViewport="true" />
+    <!-- fillViewport 탭안의 택스트가 짤리거나 개행되지 않게.. 탭 사이즈 조절 -->
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="420dp"
         android:layout_below="@+id/tab_layout"
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentRight="false"
         android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="false"
+        />
 
     <LinearLayout
         android:orientation="horizontal"

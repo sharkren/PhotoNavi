@@ -1,10 +1,13 @@
 package com.example.thomas.photonavi.fragment;
 
 
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +25,7 @@ import java.util.List;
  */
 public class bookMarkContents extends Fragment {
 
+    private View bookView;
 
     public bookMarkContents() {
         // Required empty public constructor
@@ -54,5 +58,28 @@ public class bookMarkContents extends Fragment {
         recyclerView.setAdapter(new RecyclerAdapter(getActivity().getApplicationContext(), items, R.layout.fragment_book_mark_contents));
 
         return bookView;
+    }
+
+    @Override
+    public void onDestroy() {
+
+        Log.d("Map", "bookmarkContents onDestroy() called");
+        Log.d("Map", "bookmarkContents onDestroy() bookView [" + bookView +"]");
+        if (bookView != null) {
+            recycleView(bookView.findViewById(R.id.recyclerview));
+        }
+        super.onDestroy();
+    }
+
+    private void recycleView(View view) {
+        if(view != null) {
+            Drawable bg = view.getBackground();
+
+            if(bg != null) {
+                bg.setCallback(null);
+                ((BitmapDrawable)bg).getBitmap().recycle();
+                view.setBackground(null);
+            }
+        }
     }
 }
