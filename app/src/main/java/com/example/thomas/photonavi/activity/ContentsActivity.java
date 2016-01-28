@@ -13,27 +13,27 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
+import com.example.thomas.photonavi.BackPressCloseHandler;
 import com.example.thomas.photonavi.R;
 
 public class ContentsActivity extends AppCompatActivity {
+
+    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contents);
 
+        /*
+        뒤로가기 2번 선택시 App 종료
+        http://dsnight.tistory.com/14 참조
+        */
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
+
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.contents_actionbar, null);
-
-        ImageButton imageButton = (ImageButton) mCustomView.findViewById(R.id.imgBtnBack);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
 
         getSupportActionBar().setDisplayOptions(getSupportActionBar().DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(mCustomView);
@@ -90,6 +90,13 @@ public class ContentsActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
+    }
+
 
     public void resizePager(int position, ViewPager viewPager) {
 

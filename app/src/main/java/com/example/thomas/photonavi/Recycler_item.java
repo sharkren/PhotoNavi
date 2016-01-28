@@ -5,22 +5,71 @@ package com.example.thomas.photonavi;
  */
 public class Recycler_item {
 
-    int imageResId;
+    String imageUrl;
     String title;
     String address;
-    Float latitude;
-    Float longitude;
+    Double latitude;
+    Double longitude;
 
-    int getImageResId(){
-        return this.imageResId;
+    public Double getLatitude() {
+        return latitude;
     }
-    String getTitle(){
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = Double.valueOf(latitude);
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = Double.valueOf(longitude);
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getImageUrl() {
+        return this.imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getTitle() {
         return this.title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public Recycler_item(int image, String title){
-        this.imageResId = image;
+    public Recycler_item(String imageUrl, String title, String address, String latitude,  String longitude) {
+        this.imageUrl = imageUrl;
+        this.title = title;
+        this.address = address;
+        this.latitude = Double.valueOf(latitude);
+        this.longitude = Double.valueOf(longitude);
+
+    }
+
+    public Recycler_item(String imageUrl, String title) {
+        this.imageUrl = imageUrl;
         this.title = title;
     }
 

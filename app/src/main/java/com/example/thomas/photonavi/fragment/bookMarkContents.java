@@ -46,11 +46,11 @@ public class bookMarkContents extends Fragment {
         List<Recycler_item> items = new ArrayList<>();
         Recycler_item[] item = new Recycler_item[5];
 
-        item[0] = new Recycler_item(R.drawable.photo16,"#16");
-        item[1] = new Recycler_item(R.drawable.photo17,"#17");
-        item[2] = new Recycler_item(R.drawable.photo18,"#18");
-        item[3] = new Recycler_item(R.drawable.photo19,"#19");
-        item[4] = new Recycler_item(R.drawable.photo20,"#20");
+        item[0] = new Recycler_item("__icsFiles/afieldfile/2015/07/20/1_3.jpg","그리폰");
+        item[1] = new Recycler_item("__icsFiles/afieldfile/2015/09/02/1_21.jpg","스핑크스");
+        item[2] = new Recycler_item("__icsFiles/afieldfile/2015/10/21/4_3.jpg","요타");
+        item[3] = new Recycler_item("__icsFiles/afieldfile/2015/11/12/2_5.jpg","네오");
+        item[4] = new Recycler_item("__icsFiles/afieldfile/2016/01/21/2_3.jpg","그리핑크스");
 
         for(int i = 0; i < 5; i++)
             items.add(item[i]);

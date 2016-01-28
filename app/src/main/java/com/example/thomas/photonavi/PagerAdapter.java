@@ -25,7 +25,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         // Factory methods design fattern 적용 검토
         // http://www.androiddesignpatterns.com/2012/05/using-newinstance-to-instantiate.html
-        //
         switch (position) {
             case 0:
                 totalContents totCont = new totalContents();
@@ -43,7 +42,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return null;
         }
     }
-
 
     @Override
     public int getCount() {

@@ -45,11 +45,11 @@ public class myContents extends Fragment {
         List<Recycler_item> items = new ArrayList<>();
         Recycler_item[] item = new Recycler_item[5];
 
-        item[0] = new Recycler_item(R.drawable.photo6,"#6");
-        item[1] = new Recycler_item(R.drawable.photo7,"#7");
-        item[2] = new Recycler_item(R.drawable.photo8,"#8");
-        item[3] = new Recycler_item(R.drawable.photo9,"#9");
-        item[4] = new Recycler_item(R.drawable.photo10,"#10");
+        item[0] = new Recycler_item("__icsFiles/afieldfile/2015/04/07/05_1.jpg","킹죠스");
+        item[1] = new Recycler_item("__icsFiles/afieldfile/2015/04/14/01_1.jpg","독꼬리");
+        item[2] = new Recycler_item("__icsFiles/afieldfile/2015/04/14/03_1.jpg","만타리");
+        item[3] = new Recycler_item("__icsFiles/afieldfile/2015/04/14/01_3.jpg","타나토스");
+        item[4] = new Recycler_item("__icsFiles/afieldfile/2015/04/20/1_3.jpg","프린스콩");
 
         for(int i = 0; i < 5; i++)
             items.add(item[i]);

@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.example.thomas.photonavi.GeoDegree;
 import com.example.thomas.photonavi.R;
 import com.skp.Tmap.TMapAddressInfo;
 import com.skp.Tmap.TMapData;
@@ -41,7 +42,7 @@ public class RegistActivity extends AppCompatActivity {
     final int REQ_CODE_SELECT_IMAGE=100;
     final int RESULT_OK = -1;
     public ImageView imgPhoto;
-    private static final int MAX_IMAGE_SIZE = 150;
+    private static final int MAX_IMAGE_SIZE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,6 @@ public class RegistActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getLocation(listener);
-                etLocation.setText(address);
             }
         });
 
@@ -114,7 +114,7 @@ public class RegistActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(getSupportActionBar().DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(mCustomView);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFCDDC39));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));
 
     }
 
@@ -182,6 +182,67 @@ public class RegistActivity extends AppCompatActivity {
             ExifInterface exif = null;
             try {
                 exif = new ExifInterface(imagePath);
+                GeoDegree geoDegree = new GeoDegree(exif);
+
+                Log.d("Map", ">>>>>>>>>>>>>>>> geoDegree " + geoDegree.isValid());
+
+                if (geoDegree.isValid()) {
+                    // Tmap API로 좌표(Latitude, Longitude)로 주소 얻어오기
+                    TMapData tmapdata = new TMapData();
+
+                    /*
+                    <주소 타입>
+                    A00 - 선택한 좌표계에 해당하는 행정동,법정동 주소 입니다.
+                    A01 - 선택한 좌표게에 해당하는 행정동 입니다.
+                        - 예) 망원2동, 일산1동
+                    A02 - 선택한 좌표계에 해당하는 법정동 주소입니다.
+                        - 예) 방화동, 목동
+                    A03 - 선택한 좌표계에 해당하는 새주소 길입니다.
+                    A04 - 선택한 좌표계에 해당하는 건물 번호입니다.
+                        - 예) 양천로 14길 95-11
+                    A10 선택한 좌표계에 해당하는 행정동+법정동+도로명 주소입니다.
+                     */
+                    tmapdata.reverseGeocoding(Double.valueOf(geoDegree.getLatitude().toString()),
+                            Double.valueOf(geoDegree.getLongitude().toString()), "A03",
+                            new TMapData.reverseGeocodingListenerCallback() {
+                                @Override
+                                public void onReverseGeocoding(TMapAddressInfo addressInfo) {
+                                    address = addressInfo.strFullAddress;
+                                    /*
+                                    아래와 같이 Thread를 사용하지 않고 직접
+                                    EditText tempLoc = (EditText) findViewById(R.id.etLocation);
+                                    tempLoc.setText(address);
+                                    위와 같은 코드를 실행하게 된다면 해당코드는 다른스레드에서 UI에
+                                    접근하기때문에 CalledFromWrongThreadException 예외가 발생
+
+                                    - CalledFromWrongThreadException 발생 원인 -
+                                    왜 다른스레드에서 UI를 변경하려고 하면 해당 예외가 발생하는지
+                                    알아보자면 UI변경이 있게되면 안드로이드 뷰에서는 invalidate를
+                                    호출하게 되는데 여기서 보게 되면 invalidate()에서는 ViewParent의
+                                    invalidateChild()를 호출
+                                    invalidate()에서는 checkThread()를 호출합니다. checkThread()에서는
+                                    위와 같이 현재 실행중인 스레드가 ViewRoot가 가지고 있는 mThread와
+                                    참조가 같은지 비교하고 아니라면 CalledFromWrongThreadException 예외 발생
+                                    http://csjung.tistory.com/153
+                                     */
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    EditText tempLoc = (EditText) findViewById(R.id.etLocation);
+                                                    tempLoc.setText(address);
+                                                }
+                                            });
+                                        }
+                                    }).start();
+
+                                }
+                            });
+
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -277,6 +338,18 @@ public class RegistActivity extends AppCompatActivity {
                             @Override
                             public void onReverseGeocoding(TMapAddressInfo addressInfo) {
                                 address = addressInfo.strFullAddress;
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        runOnUiThread(new Runnable(){
+                                            @Override
+                                            public void run() {
+                                                EditText tempLoc = (EditText) findViewById(R.id.etLocation);
+                                                tempLoc.setText(address);
+                                            }
+                                        });
+                                    }
+                                }).start();
                             }
                         });
             }

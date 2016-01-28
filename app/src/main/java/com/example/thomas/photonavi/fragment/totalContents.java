@@ -47,11 +47,11 @@ public class totalContents extends Fragment {
         List<Recycler_item> items = new ArrayList<>();
         Recycler_item[] item = new Recycler_item[5];
 
-        item[0] = new Recycler_item(R.drawable.photo1,"#1");
-        item[1] = new Recycler_item(R.drawable.photo2,"#2");
-        item[2] = new Recycler_item(R.drawable.photo3,"#3");
-        item[3] = new Recycler_item(R.drawable.photo4,"#4");
-        item[4] = new Recycler_item(R.drawable.photo5,"#5");
+        item[0] = new Recycler_item("__icsFiles/afieldfile/2015/01/30/012_1.jpg","에반");
+        item[1] = new Recycler_item("__icsFiles/afieldfile/2015/01/30/022_1.jpg","테로");
+        item[2] = new Recycler_item("__icsFiles/afieldfile/2015/01/30/032_1.jpg","무간");
+        item[3] = new Recycler_item("__icsFiles/afieldfile/2015/02/17/shuma_1.jpg","슈마");
+        item[4] = new Recycler_item("__icsFiles/afieldfile/2015/03/31/4_1.jpg","타이탄");
 
         for(int i = 0; i < 5; i++)
             items.add(item[i]);

@@ -2,10 +2,7 @@ package com.example.thomas.photonavi;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.os.StrictMode;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,11 +15,6 @@ import android.widget.TextView;
 
 import com.skp.Tmap.TMapTapi;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -58,7 +50,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Recycler_item item = items.get(position);
 
-        holder.contentImage.setImageBitmap(new ImageRoader().getBitmapImg("androidfigure.jpg"));
+        BitmapWorkerTask task = new BitmapWorkerTask(holder.contentImage);
+        task.execute(item.getImageUrl());
+
+        //holder.contentImage.setImageBitmap(new ImageRoader().getBitmapImg("androidfigure.jpg"));
         holder.title.setText(item.getTitle());
         holder.location.setText("대한민국 어딘가..(향후 상세주소로 변경)");
 
@@ -66,10 +61,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         // 이미지에서 위치정보 읽어오기
         // 향후 서버에서 수신하도록 수정
         /////////////////////////////////////////////////////////////////////////
-        LoadGeoInfo loadGeoInfo = new LoadGeoInfo(items.get(position).getImageResId());
-        if (loadGeoInfo != null) {
-            holder.location.setText(loadGeoInfo.getAddress());
-        }
+        //LoadGeoInfo loadGeoInfo = new LoadGeoInfo(items.get(position).getImageUrl());
+        //if (loadGeoInfo != null) {
+        //    holder.location.setText(loadGeoInfo.getAddress());
+        //}
 
         // 이미지 클릭 이벤트
         holder.contentImage.setOnClickListener(new View.OnClickListener() {
@@ -87,60 +82,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 getPath();
             }
         });
-    }
-
-    /**
-     * 안드로이드 버전 3.0 이상부터는 인터넷 연결은 쓰레드나 핸들러에서 처리하도록 정책이 바뀌었다.
-     * 그래서 UI 쓰레스에서 인터넷 연결을 시도하면(HttpURLConnection과 같은 것으로) 실행 타임에서
-     * 에러가 발생한다. 그런데 위와 같은 코드를 인터넷 연결을 시도하는 코드 앞에 표시해 두면
-     * 안드로이드 버전 3.0 이상에서도 정상적으로 잘 실행이 된다.
-     * 그런데 위 코드를 인터넷을 연결하는 곳 앞에 하지 않고 onCreate()에 다음과 같이 해도 가능하다.
-     */
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-    public class ThreadPolicy {
-
-        // For smooth networking
-        public ThreadPolicy() {
-
-            StrictMode.ThreadPolicy policy =
-                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
-            StrictMode.setThreadPolicy(policy);
-        }
-    }
-
-
-    public class ImageRoader {
-
-        private final String serverUrl = "http://www.tmonews.com/wp-content/uploads/2012/10/";
-
-        public ImageRoader() {
-
-            new ThreadPolicy();
-        }
-
-        public Bitmap getBitmapImg(String imgStr) {
-
-            Bitmap bitmapImg = null;
-
-            try {
-                URL url = new URL(serverUrl +
-                        URLEncoder.encode(imgStr, "utf-8"));
-                // Character is converted to 'UTF-8' to prevent broken
-
-                HttpURLConnection conn = (HttpURLConnection) url
-                        .openConnection();
-                conn.setDoInput(true);
-                conn.connect();
-
-                InputStream is = conn.getInputStream();
-                bitmapImg = BitmapFactory.decodeStream(is);
-
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
-            return bitmapImg;
-        }
     }
 
     /**
