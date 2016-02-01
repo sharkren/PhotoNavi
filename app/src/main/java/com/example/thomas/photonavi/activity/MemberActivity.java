@@ -41,6 +41,10 @@ public class MemberActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        ActionBar 하단의 그림자 삭제
+         */
+        getSupportActionBar().setElevation(0f);
         getSupportActionBar().setDisplayOptions(getSupportActionBar().DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(mCustomView);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));

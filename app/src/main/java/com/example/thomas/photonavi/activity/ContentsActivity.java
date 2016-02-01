@@ -1,6 +1,7 @@
 package com.example.thomas.photonavi.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -34,6 +35,10 @@ public class ContentsActivity extends AppCompatActivity {
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.contents_actionbar, null);
 
+        /*
+        ActionBar 하단의 그림자 삭제
+         */
+        getSupportActionBar().setElevation(0f);
         getSupportActionBar().setDisplayOptions(getSupportActionBar().DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(mCustomView);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));

@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thomas.photonavi">
 
+    <!--
+    git pull commit 오류시
+    해당 repository directory로 이동후
+    git stash
+    git pull origin master
+    git stash pop
+    순서대로 실행
+    -->
+
     <permission
         android:name="com.example.thomas.photonavi.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
@@ -52,10 +61,6 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBkaJOkW5Rkom3cDMNJyrAySibb7vFaol0" />
 
-        <activity
-            android:name=".activity.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              <activity
             android:name=".IntroActivity"
