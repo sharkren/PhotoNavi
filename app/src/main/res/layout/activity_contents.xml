@@ -12,12 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:background="?attr/colorPrimary"
+        android:background="#eeeeee"
         app:tabMode="fixed"
         app:tabGravity="fill"
         app:tabTextColor="#000000"
-        app:tabSelectedTextColor="#FFFFFF"
-        android:fillViewport="true" />
+        app:tabSelectedTextColor="#FF9800"
+        app:tabIndicatorHeight="4dp"
+        android:fillViewport="true"
+        android:layout_marginBottom="5dp" />
     <!-- fillViewport 탭안의 택스트가 짤리거나 개행되지 않게.. 탭 사이즈 조절 -->
 
     <android.support.v4.view.ViewPager
@@ -38,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/pager"
-        android:background="#FFFFFF"
+        android:background="#eceff1"
         android:gravity="center_vertical">
 
         <TextView

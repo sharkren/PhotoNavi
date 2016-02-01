@@ -31,19 +31,28 @@ public class ContentsActivity extends AppCompatActivity {
         */
         backPressCloseHandler = new BackPressCloseHandler(this);
 
-
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.contents_actionbar, null);
 
         getSupportActionBar().setDisplayOptions(getSupportActionBar().DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(mCustomView);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFF009688));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));
+
+        // 설정버튼
+        ImageButton imgBtnSetting = (ImageButton) mCustomView.findViewById(R.id.imgBtnSetting);
+
+        imgBtnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplication(), SettingActivity.class)); // 인트로가 끝난후 이동할 Activity
+            }
+        });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("전체"));
-        tabLayout.addTab(tabLayout.newTab().setText("내꺼"));
-        tabLayout.addTab(tabLayout.newTab().setText("친구"));
-        tabLayout.addTab(tabLayout.newTab().setText("북마크"));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.total));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.my));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.friend));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.bookmarkBold));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

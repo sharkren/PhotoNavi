@@ -41,10 +41,25 @@
     <string name="bookmark">북마크</string>
     <string name="regist_done">등록하기</string>
     <string name="setting">설정</string>
+    <string name="total"><b>전체</b></string>
+    <string name="my"><b>내꺼</b></string>
+    <string name="friend"><b>친구</b></string>
+    <string name="bookmarkBold"><b>북마크</b></string>
+
     <!-- [START Content Activity] -->
+
+    <!-- [START Regist Activity] -->
+    <string name="my_location">내위치</string>
+    <string name="with_friend">누구와</string>
+    <!-- [END Regist Activity] -->
+
+    <!-- [START Regist Activity] -->
+    <string name="save">저장하기</string>
+    <!-- [END Regist Activity] -->
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_regist_text">RegistTextActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
 </resources>

@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- [END gcm_permission] -->
 
+
     <!-- [START gallary permission] -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -24,14 +25,13 @@
 
     <!-- [START camera permission] -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- [EMD camera permission] -->
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <!--android:largeHeap="true"-->
-
+    <!-- android:largeHeap="true" -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -52,9 +52,6 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBkaJOkW5Rkom3cDMNJyrAySibb7vFaol0" />
 
-        <meta-data android:name="com.parse.push.gcm_sender_id"
-            android:value="id:YOUR_SENDER_ID" />
-
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
@@ -64,6 +61,9 @@
             android:name=".IntroActivity"
             android:label="@string/title_activity_intro" />
         -->
+        <activity
+            android:name=".activity.SettingActivity"
+            android:label="@string/title_activity_setting" />
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" />
@@ -76,7 +76,6 @@
         <activity
             android:name=".activity.RegistActivity"
             android:label="@string/title_activity_regist_text" />
-
 
         <!-- [START gcm_receiver] -->
         <!--
@@ -95,6 +94,7 @@
         </receiver>
         <!-- [END gcm_receiver] -->
 
+
         <!-- [START gcm_listener_service] -->
         <!--
          GCM 리스너 서비스는 GCM 메세지가 디바이스로 전송이되면 메세지를 받아서 처리하는
@@ -102,13 +102,14 @@
          이후에 살펴볼 MyGcmListenerService.java에 내용을 구현할 것이다.
         -->
         <service
-            android:name="com.example.thomas.photonavi.service.MyGcmListenerService"
+            android:name=".service.MyGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <!-- [END gcm_listener_service] -->
+
 
         <!-- [START instanceId_listener_service] -->
         <!--
@@ -117,7 +118,7 @@
         구현할 것이다.
         -->
         <service
-            android:name="com.example.thomas.photonavi.service.MyInstanceIDListenerService"
+            android:name=".service.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
@@ -125,14 +126,15 @@
         </service>
         <!-- [END instanceId_listener_service] -->
 
+
         <!-- [START gcm_registration_service] -->
         <!--
         실제 디바이스에서 Instance ID를 사용하여 디바이스를 GCM에 등록하고 디바이스 고유 토큰을
         생성하기 위한 서비스를 RegistrationIntentService.java에서 구현할 것이다.
         -->
         <service
-            android:name="com.example.thomas.photonavi.service.RegistrationIntentService"
-            android:exported="false"></service>
+            android:name=".service.RegistrationIntentService"
+            android:exported="false" />
         <!-- [END gcm_registration_service] -->
 
     </application>
