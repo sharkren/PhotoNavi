@@ -38,7 +38,8 @@ public class BitmapWorkerTask extends AsyncTask<String, Void, Bitmap> {
             imgUrl = param[0];
             Log.d("Map", "이미지 파일 명" + imgUrl);
             //URL url = new URL(serverUrl + URLEncoder.encode(imgUrl, "utf-8"));
-            URL url = new URL(serverUrl + imgUrl);
+            //URL url = new URL(serverUrl + imgUrl);
+            URL url = new URL(imgUrl);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoInput(true);

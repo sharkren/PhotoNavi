@@ -1,6 +1,7 @@
 package com.example.thomas.photonavi.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.thomas.photonavi.BackPressCloseHandler;
 import com.example.thomas.photonavi.R;
@@ -53,12 +55,49 @@ public class ContentsActivity extends AppCompatActivity {
             }
         });
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.total));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.my));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.friend));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.bookmarkBold));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        final float norSize = 15.0f;
+        final float selSize = 16.0f;
+        final String strColor = "#84827f";
+
+        // 동적으로 탭 레이아웃 텍스뷰 생성.
+        // 기본 탭 텍스트를 사용하면 스타일 변경이 안됨.
+        TextView view1 = new TextView(this);
+        view1.setTextSize(selSize);
+        view1.setTextColor(Color.parseColor("#FFFFFF"));
+        view1.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        view1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        view1.setText(R.string.total);
+        tabLayout.addTab(tabLayout.newTab().setCustomView(view1));
+
+        TextView view2 = new TextView(this);
+        view2.setTextSize(norSize);
+        view2.setTextColor(Color.parseColor(strColor));
+        view2.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        view2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        view2.setText(R.string.my);
+        tabLayout.addTab(tabLayout.newTab().setCustomView(view2));
+
+        TextView view3 = new TextView(this);
+        view3.setTextSize(norSize);
+        view3.setTextColor(Color.parseColor(strColor));
+        view3.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        view3.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        view3.setText(R.string.friend);
+        tabLayout.addTab(tabLayout.newTab().setCustomView(view3));
+
+        TextView view4 = new TextView(this);
+        view4.setTextSize(norSize);
+        view4.setTextColor(Color.parseColor(strColor));
+        view4.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        view4.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        view4.setText(R.string.bookmarkBold);
+        tabLayout.addTab(tabLayout.newTab().setCustomView(view4));
+
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.my));
+//        tabLayout.addTab(tabLayout.newTab().setText(R.string.friend));
+//        tabLayout.addTab(tabLayout.newTab().setText(R.string.bookmarkBold));
+//        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new com.example.thomas.photonavi.PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
@@ -69,9 +108,20 @@ public class ContentsActivity extends AppCompatActivity {
             @Override
             public  void onPageSelected(int position) {
                 Log.d("Map", ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                Log.d("Map", "onPageSelected Called");
+                Log.d("Map", "onPageSelected Called " + position);
                 Log.d("Map", ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
                 resizePager(position, viewPager);
+                for (int i = 0 ; i < 4; i++) {
+                    TextView tv = (TextView) tabLayout.getTabAt(i).getCustomView();
+                    // 선택된 탭만 폰트 폰트 크기 흰색으로 변경
+                    //Log.d("Map", "not PageSelected");
+                    tv.setTextColor(Color.parseColor(strColor));
+                    tv.setTextSize(norSize);
+                }
+
+                TextView tv = (TextView) tabLayout.getTabAt(position).getCustomView();
+                tv.setTextColor(Color.parseColor("#FFFFFF"));
+                tv.setTextSize(selSize);
             }
         });
 

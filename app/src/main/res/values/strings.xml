@@ -12,6 +12,7 @@
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
 
+    <string name="host_url">http://192.168.25.25:8080/pork/api</string>
     <!-- [START Login Activity] -->
     <string name="app_title">Where are you?</string>
     <string name="email">Email</string>

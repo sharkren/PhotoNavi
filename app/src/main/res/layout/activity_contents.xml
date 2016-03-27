@@ -8,6 +8,25 @@
     tools:context=".activity.ContentsActivity"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FF9800">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="New Text"
+            android:id="@+id/textView"
+            android:background="#d9870d"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
+
+    <!-- app:tabTextColor="#84827f"
+        app:tabSelectedTextColor="#FFFFFF" -->
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
@@ -17,11 +36,10 @@
         android:textStyle="bold"
         app:tabMode="fixed"
         app:tabGravity="fill"
-        app:tabTextColor="#E0E0E0"
-        app:tabSelectedTextColor="#FFFFFF"
         app:tabIndicatorHeight="4dp"
         app:tabIndicatorColor="#FFFFFF"
-        android:fillViewport="false" />
+        android:fillViewport="false"
+        android:layout_gravity="center" />
     <!-- fillViewport 탭안의 택스트가 짤리거나 개행되지 않게.. 탭 사이즈 조절 -->
 
     <ImageView
@@ -76,7 +94,6 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:textColor="#FF9800" />
 
         <ImageButton
@@ -93,7 +110,6 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:textColor="#FF9800" />
 
         <ImageButton
@@ -110,7 +126,6 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:textColor="#FF9800" />
 
     </LinearLayout>

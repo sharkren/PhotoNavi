@@ -55,7 +55,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         //holder.contentImage.setImageBitmap(new ImageRoader().getBitmapImg("androidfigure.jpg"));
         holder.title.setText(item.getTitle());
-        holder.location.setText("대한민국 어딘가..(향후 상세주소로 변경)");
+        holder.location.setText(item.getAddress());
 
         /////////////////////////////////////////////////////////////////////////
         // 이미지에서 위치정보 읽어오기
@@ -79,7 +79,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             @Override
             public void onClick(View view) {
-                getPath();
+                getPath(item);
+            }
+        });
+
+        holder.tvNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPath(item);
             }
         });
     }
@@ -87,19 +94,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     /**
      * Tmap Navigation 호출
      */
-    protected void getPath() {
+    protected void getPath(Recycler_item pItem) {
 
         TMapTapi tmaptapi = new TMapTapi(view.getContext());
         tmaptapi.setSKPMapAuthentication("ff33d858-1d53-32c3-b1f5-1ae138b8f399");
 
-        Boolean bRouteYn = tmaptapi.invokeRoute("서울특별시 강남구 선릉로",
-                new Float("127.04948557"), new Float("37.50365057"));
-
-        if (bRouteYn == true) {
-            Log.d("Map", "경로 검색 성공");
+        if (pItem.getLatitude() == null || pItem.getLongitude() == null) {
+            Log.d("Map", "위도 / 경도 정보가 없음.");
         }
         else {
-            Log.d("Map", "경로 검색 실패");
+
+            Boolean bRouteYn = tmaptapi.invokeRoute(pItem.getAddress(),
+                    new Float(pItem.getLongitude().toString()), new Float(pItem.getLatitude().toString()));
+
+            //Boolean bRouteYn = tmaptapi.invokeRoute("서울특별시 강남구 선릉로", new Float("127.04948557"), new Float("37.50365057"));
+
+            if (bRouteYn == true) {
+                Log.d("Map", "경로 검색 성공");
+            } else {
+                Log.d("Map", "경로 검색 실패");
+            }
         }
     }
 
@@ -114,14 +128,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         TextView location;
         CardView cardview;
         ImageButton imgBtnNavi;
+        TextView tvNavi;
 
         public ViewHolder(View itemView) {
             super(itemView);
             contentImage = (ImageView)itemView.findViewById(R.id.content_image);
-            title = (TextView)itemView.findViewById(R.id.title);
-            cardview = (CardView)itemView.findViewById(R.id.cardview);
-            location = (TextView)itemView.findViewById(R.id.location);
-            imgBtnNavi = (ImageButton)itemView.findViewById(R.id.imgBtnNavi);
+            title         = (TextView)itemView.findViewById(R.id.title);
+            cardview      = (CardView)itemView.findViewById(R.id.cardview);
+            location      = (TextView)itemView.findViewById(R.id.location);
+            imgBtnNavi    = (ImageButton)itemView.findViewById(R.id.imgBtnNavi);
+            tvNavi         = (TextView)itemView.findViewById(R.id.tvNavi);
         }
     }
 

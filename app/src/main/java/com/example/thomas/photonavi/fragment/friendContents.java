@@ -46,13 +46,13 @@ public class friendContents extends Fragment {
         List<Recycler_item> items = new ArrayList<>();
         Recycler_item[] item = new Recycler_item[5];
 
-        item[0] = new Recycler_item("__icsFiles/afieldfile/2015/04/28/3_3.jpg","쎈뿔");
-        item[1] = new Recycler_item("__icsFiles/afieldfile/2015/05/04/01_3.jpg","우르스");
-        item[2] = new Recycler_item("__icsFiles/afieldfile/2015/05/19/2_1.jpg","베노사");
-        item[3] = new Recycler_item("__icsFiles/afieldfile/2015/06/08/1_9.jpg","크랑");
-        item[4] = new Recycler_item("__icsFiles/afieldfile/2015/06/15/6_7.jpg","바벨");
+        item[0] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/04/28/3_3.jpg","쎈뿔");
+        item[1] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/05/04/01_3.jpg","우르스");
+        item[2] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/05/19/2_1.jpg","베노사");
+        item[3] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/06/08/1_9.jpg","크랑");
+        item[4] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/06/15/6_7.jpg","바벨");
 
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < item.length; i++)
             items.add(item[i]);
 
         recyclerView.setAdapter(new RecyclerAdapter(getActivity().getApplicationContext(), items, R.layout.fragment_freind_contents));
