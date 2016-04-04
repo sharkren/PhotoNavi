@@ -3,7 +3,9 @@ package com.example.thomas.photonavi.service;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.util.Log;
+
+import com.example.thomas.photonavi.model.ContactItem;
+import com.example.thomas.photonavi.model.ContactItemList;
 
 /**
  * Created by thomas on 2016-01-25.
@@ -25,12 +27,19 @@ public class MyPhoneNumList implements Runnable {
         String name;
         String number;
 
+        ContactItemList contactItemList = ContactItemList.getInstance();
         if (mCursor.moveToFirst() && mCursor.getCount() > 0) {
             do {
                 name = mCursor.getString(mCursor.getColumnIndex(Phone.DISPLAY_NAME));
                 number = mCursor.getString(mCursor.getColumnIndex(Phone.NUMBER));
+                ContactItem contactItem = new ContactItem();
+                contactItem.setName(name);
+                contactItem.setPhoneNumber(number);
 
-                Log.d("MyContactList", "Name : " + name + " / Number : " + number);
+                contactItemList.setContactItemList(contactItem);
+                //Log.d("MyContactList", "Name : " + name + " / Number : " + number);
+                //Log.d("MyContactList", "setName : " + contactItem.getName() + " / setPhoneNumber : " + contactItem.getPhoneNumber());
+
             } while(mCursor.moveToNext());
         }
 

@@ -1,9 +1,12 @@
 package com.example.thomas.photonavi.activity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -153,6 +156,32 @@ public class ContentsActivity extends AppCompatActivity {
             }
         });
 
+        // 처음 로그인 했다면 새로운 친구가 찾아 추가할지 팝업 호출
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("PORK 친구찾기 알림")
+               .setMessage("주소록과 비교하여 새로운 친구를 자동으로 등록합니다." +
+                       "친구찾기를 실행하시곘습니까?")
+                .setCancelable(false)
+                .setPositiveButton("지금 찾기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // 친구추천 Thread 호출
+                        CheckTypesTask task = new CheckTypesTask();
+                        task.execute();
+                    }
+                })
+                .setNeutralButton("나중에", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
     @Override
@@ -186,6 +215,41 @@ public class ContentsActivity extends AppCompatActivity {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(width,height);
         viewPager.setLayoutParams(params);
 
+    }
+
+    private class CheckTypesTask extends AsyncTask<Void, Void, Void> {
+
+        ProgressDialog asyncDialog = new ProgressDialog(ContentsActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("친구 찾기 진행중입니다..");
+
+            // show dialog
+            asyncDialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            try {
+                for (int i = 0; i < 5; i++) {
+                    //asyncDialog.setProgress(i * 30);
+                    Thread.sleep(500);
+                    // 여기서 DB에 친구추천
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            asyncDialog.dismiss();
+            super.onPostExecute(result);
+        }
     }
 
 }

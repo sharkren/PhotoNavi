@@ -8,15 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.thomas.photonavi.service.MyPhoneNumList;
 import com.example.thomas.photonavi.R;
-import com.example.thomas.photonavi.service.RestApiClient;
+import com.example.thomas.photonavi.service.MyPhoneNumList;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.io.UnsupportedEncodingException;
 
 public class LoginActivity extends Activity {
 
@@ -52,15 +51,15 @@ public class LoginActivity extends Activity {
                     e.printStackTrace();
                 }
 
-                RestApiClient restApiClient = null;
-                try {
-                    restApiClient = new RestApiClient();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+//                RestApiClient restApiClient = null;
+//                try {
+//                    restApiClient = new RestApiClient();
+//                } catch (UnsupportedEncodingException e) {
+//                    e.printStackTrace();
+//                }
 
                 String retMsg = "0000";
-                retMsg = restApiClient.restApiCall(getApplication(), jsonObject);
+                //retMsg = restApiClient.restApiCall(getApplication(), jsonObject);
 
                 // 컨탠츠 화면으로 이동동
                 if (retMsg == "0000") {
@@ -104,9 +103,9 @@ public class LoginActivity extends Activity {
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
+                Uri.parse("http://host/path")
                 // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.thomas.photonavi.activity/http/host/path")
+               // Uri.parse("android-app://com.example.thomas.photonavi.activity/http/host/path")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
     }
@@ -123,9 +122,9 @@ public class LoginActivity extends Activity {
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
+                Uri.parse("http://host/path")
                 // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.thomas.photonavi.activity/http/host/path")
+                //Uri.parse("android-app://com.example.thomas.photonavi.activity/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
