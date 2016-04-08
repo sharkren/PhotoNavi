@@ -4,12 +4,14 @@ import android.content.Context;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import cz.msebera.android.httpclient.entity.StringEntity;
+
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by Administrator on 2016-03-27.
@@ -28,7 +30,7 @@ public class RestApiClient {
         //this.reqParamJson = reqParamJson;
     }
 
-    public String restApiCall(Context context, JSONObject reqParamJson) {
+    public String restApiCall(Context context, JSONObject reqParamJson, String apiName) {
 
         this.context = context;
         this.reqParamJson = reqParamJson;
@@ -43,7 +45,7 @@ public class RestApiClient {
             e.printStackTrace();
         }
 
-        asyncHttpClient.post(this.context, REST_AIP_URL+USER_LOGIN, entity, "application/json", new JsonHttpResponseHandler() {
+        asyncHttpClient.post(this.context, REST_AIP_URL+apiName, entity, "application/json", new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("Map", "PORK_LOG >>> Login Check Success");

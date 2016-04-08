@@ -36,7 +36,7 @@
             android:text="@string/email"
             android:id="@+id/tvNavi"
             android:textColor="#FF9800"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="15dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -44,7 +44,9 @@
             android:id="@+id/etEmail"
             android:inputType="textEmailAddress"
             android:textColor="#757575"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,15 +54,23 @@
             android:text="@string/password"
             android:id="@+id/tvLike"
             android:textColor="#FF9800"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="15dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etPassword"
             android:inputType="textPassword"
-            android:textColor="#757575" />
+            android:textColor="#757575"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
     </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chkRegist"
+        android:text="자동로그인" />
 
     <LinearLayout
         android:orientation="vertical"

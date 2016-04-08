@@ -13,9 +13,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.example.thomas.photonavi.R;
+import com.example.thomas.photonavi.service.RestApiClient;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -49,11 +55,47 @@ public class MemberActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(mCustomView);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));
 
+        // 가입화면 데이터 Binding
+        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
+        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
+        final EditText etCellNum = (EditText) findViewById(R.id.etCellNum);
+        final EditText etBirth = (EditText) findViewById(R.id.etBirth);
+        final Spinner spNavigation = (Spinner) findViewById(R.id.spNavigation);
+        final Switch swAlarm = (Switch) findViewById(R.id.swAlarm);
+        final Switch swAuto = (Switch) findViewById(R.id.swAuto);
+
         Button btnJoin = (Button) findViewById(R.id.btnJoin);
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                //onBackPressed();
+                // 회원가입 API 호출
+
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("email", etEmail.getText().toString());
+                    jsonObject.put("pwd", etPassword.getText().toString());
+                    jsonObject.put("cellPhone", etCellNum.getText().toString());
+                    jsonObject.put("birth", etBirth.getText().toString());
+                    jsonObject.put("useNavi", spNavigation.getSelectedItem().toString());
+                    jsonObject.put("push", swAlarm.isChecked() ? "Y" : "N");
+                    jsonObject.put("autoRecommand", swAlarm.isChecked() ? "Y" : "N");
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                RestApiClient restApiClient = null;
+                try {
+                    restApiClient = new RestApiClient();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                String retMsg = "0000";
+                retMsg = restApiClient.restApiCall(getApplication(), jsonObject, "joinUser.do");
+
             }
         });
 
@@ -74,7 +116,7 @@ public class MemberActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         day= calendar.get(Calendar.DAY_OF_MONTH);
 
-        etBirth = (EditText) findViewById(R.id.etBirth);
+        //etBirth = (EditText) findViewById(R.id.etBirth);
         etBirth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

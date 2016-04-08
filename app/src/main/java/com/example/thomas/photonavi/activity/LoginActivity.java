@@ -59,7 +59,7 @@ public class LoginActivity extends Activity {
 //                }
 
                 String retMsg = "0000";
-                //retMsg = restApiClient.restApiCall(getApplication(), jsonObject);
+                //retMsg = restApiClient.restApiCall(getApplication(), jsonObject, "userLogin.do");
 
                 // 컨탠츠 화면으로 이동동
                 if (retMsg == "0000") {
