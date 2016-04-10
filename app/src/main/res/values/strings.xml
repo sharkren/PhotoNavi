@@ -20,6 +20,7 @@
     <string name="login">로그인</string>
     <string name="join_member">회원가입</string>
     <string name="findUserInfo"><u>이메일주소 / 비밀번호를 잊으셨나요?</u></string>
+    <string name="autoLogin">자동으로 포크에 로그인하기</string>
     <!-- [END Login Activity] -->
 
     <!-- [START Member Activity] -->

@@ -47,11 +47,27 @@ public class totalContents extends Fragment {
         List<Recycler_item> items = new ArrayList<>();
         Recycler_item[] item = new Recycler_item[5];
 
-        item[0] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/01/30/012_1.jpg","에반");
-        item[1] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/01/30/022_1.jpg","테로");
-        item[2] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/01/30/032_1.jpg","무간");
-        item[3] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/02/17/shuma_1.jpg","슈마");
-        item[4] = new Recycler_item("http://img.kbs.co.kr/cms/2tv/enter/mecard/about/cast01/__icsFiles/afieldfile/2015/03/31/4_1.jpg","타이탄");
+        item[0] = new Recycler_item("http://cfile6.uf.tistory.com/image/275A9B505465CFAE367FD9","토르");
+        item[0].setMemo("힘은 헐크하고 맞먹는 힘을 가지고 있지만\n" +
+                "머리가 나빠서 자신의 파워를 제대로\n" +
+                "쓰는 일이 거의 없다.");
+        item[1] = new Recycler_item("http://cfile4.uf.tistory.com/image/2658D54B5465D18703A48B","노템 타노스");
+        item[1].setMemo("어벤저스2에도 나온다.\n" +
+                "노템시에는 8등급이지만\n" +
+                "이후 나오는 풀템에서는 등급이 상승한다.\n" +
+                "템빨!!");
+        item[2] = new Recycler_item("http://cfile30.uf.tistory.com/image/2347B74B5465D188176058","메피스토텔레스");
+        item[2].setMemo("지옥의 군주다\n" +
+                "지옥영역에서는 더 8등급을 넘어선 더\n" +
+                "강력한 힘을 발휘한다.");
+        item[3] = new Recycler_item("http://cfile2.uf.tistory.com/image/22557B4B5465D188088A7A","실버서퍼");
+        item[3].setMemo("판타스틱4에 나온 실버서퍼\n" +
+                "영하에서는 좀 평가 절하되서 나온거 같다.\n" +
+                "블랙홀에서도 생존할 수 있는 존재인데.");
+        item[4] = new Recycler_item("http://cfile30.uf.tistory.com/image/2371B2505465D3942BB7F4","고스트라이더");
+        item[4].setMemo("메피스토에 의해 힘을 얻은 고스트 라이더\n" +
+                "인간의 인격을 누르고 풀파워를 내면\n" +
+                "블랙하트정도는 그냥 보내버린답니다.");
 
         for(int i = 0; i < item.length; i++)
             items.add(item[i]);

@@ -15,6 +15,7 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
+        android:scrollbars="none"
         style="@style/AppTheme">
 
         <LinearLayout
@@ -27,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/password"
                 android:id="@+id/tvPassword"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="#FF9800"
                 android:layout_marginTop="5dp" />
 
@@ -38,7 +39,10 @@
                 android:hint="비밀번호"
                 style="@style/AppTheme"
                 android:inputType="textPassword"
-                android:textColor="#9e9e9e" />
+                android:textColor="#9e9e9e"
+                android:drawableLeft="@drawable/ic_pwd"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
 
             <EditText
                 android:layout_width="fill_parent"
@@ -48,25 +52,31 @@
                 style="@style/AppTheme"
                 android:inputType="textPassword"
                 android:layout_marginBottom="5dp"
-                android:textColor="#9e9e9e" />
+                android:textColor="#9e9e9e"
+                android:drawableLeft="@drawable/ic_pwd"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cellPhone"
                 android:id="@+id/tvCellPhone"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="#FF9800" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etCellNum"
-                android:hint="전화번호 &apos;-&apos; 없이"
+                android:hint="&apos;-&apos; 없이"
                 style="@style/AppTheme"
                 android:inputType="phone"
                 android:layout_marginBottom="5dp"
-                android:textColor="#9e9e9e" />
+                android:textColor="#9e9e9e"
+                android:drawableLeft="@drawable/ic_phone"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -74,13 +84,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
-
                 <Switch
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/alarmYn"
                     android:id="@+id/swAlarm"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:layout_marginRight="10dp"
                     android:textColor="#FF9800" />
@@ -98,13 +107,14 @@
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:id="@+id/spNavigation"
-                style="@style/Theme.AppCompat.Light"
                 android:spinnerMode="dropdown"
+                android:background="@drawable/button_border"
                 android:prompt="@string/prompt"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -121,7 +131,8 @@
                     android:textColor="#FF9800"
                     android:background="@drawable/button_border"
                     android:textStyle="bold"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -140,7 +151,8 @@
                     android:textColor="#FF9800"
                     android:background="@drawable/button_border"
                     android:textStyle="bold"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dp" />
             </LinearLayout>
 
         </LinearLayout>

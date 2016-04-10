@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,14 @@ import java.util.GregorianCalendar;
 
 public class MemberActivity extends AppCompatActivity {
 
+    private EditText etEmail;
+    private EditText etPassword;
+    private EditText etCellNum;
     private EditText etBirth;
+    private Spinner spNavigation;
+    private Switch swAlarm;
+    private Switch swAuto;
+
     ArrayAdapter<CharSequence>  adspin;
 
     @Override
@@ -56,13 +64,13 @@ public class MemberActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFFFF9800));
 
         // 가입화면 데이터 Binding
-        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
-        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
-        final EditText etCellNum = (EditText) findViewById(R.id.etCellNum);
-        final EditText etBirth = (EditText) findViewById(R.id.etBirth);
-        final Spinner spNavigation = (Spinner) findViewById(R.id.spNavigation);
-        final Switch swAlarm = (Switch) findViewById(R.id.swAlarm);
-        final Switch swAuto = (Switch) findViewById(R.id.swAuto);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        etCellNum = (EditText) findViewById(R.id.etCellNum);
+        etBirth = (EditText) findViewById(R.id.etBirth);
+        spNavigation = (Spinner) findViewById(R.id.spNavigation);
+        swAlarm = (Switch) findViewById(R.id.swAlarm);
+        swAuto = (Switch) findViewById(R.id.swAuto);
 
         Button btnJoin = (Button) findViewById(R.id.btnJoin);
         btnJoin.setOnClickListener(new View.OnClickListener() {
@@ -70,21 +78,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //onBackPressed();
                 // 회원가입 API 호출
-
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("email", etEmail.getText().toString());
-                    jsonObject.put("pwd", etPassword.getText().toString());
-                    jsonObject.put("cellPhone", etCellNum.getText().toString());
-                    jsonObject.put("birth", etBirth.getText().toString());
-                    jsonObject.put("useNavi", spNavigation.getSelectedItem().toString());
-                    jsonObject.put("push", swAlarm.isChecked() ? "Y" : "N");
-                    jsonObject.put("autoRecommand", swAlarm.isChecked() ? "Y" : "N");
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                JSONObject jsonObject = makeParam();
 
                 RestApiClient restApiClient = null;
                 try {
@@ -116,7 +110,6 @@ public class MemberActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         day= calendar.get(Calendar.DAY_OF_MONTH);
 
-        //etBirth = (EditText) findViewById(R.id.etBirth);
         etBirth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,12 +138,39 @@ public class MemberActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 입력받은 값으로 param 데이터 생성
+     * @return JSONObject paramJson
+     */
+    private JSONObject makeParam () {
+        JSONObject paramJson = new JSONObject();
+
+        try {
+            paramJson.put("email", etEmail.getText().toString());
+            paramJson.put("pwd", etPassword.getText().toString());
+            paramJson.put("cellPhone", etCellNum.getText().toString());
+            paramJson.put("birth", etBirth.getText().toString());
+            paramJson.put("useNavi", spNavigation.getSelectedItem().toString());
+            paramJson.put("push", swAlarm.isChecked() ? "Y" : "N");
+            paramJson.put("autoRecommand", swAlarm.isChecked() ? "Y" : "N");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return paramJson;
+    }
+
     private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
-
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             // TODO Auto-generated method stub
+            Log.d("Map","year = " + year);
+            Log.d("Map","monthOfYear = " + monthOfYear);
+            Log.d("Map","dayOfMonth = " + dayOfMonth);
+
             String msg = String.format("%d년 %02d월 %02d일", year, monthOfYear+1, dayOfMonth);
+            Log.d("Map", "date = " + msg);
             etBirth.setText(msg);
         }
 

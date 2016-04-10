@@ -10,6 +10,15 @@ public class Recycler_item {
     String address;
     Double latitude;
     Double longitude;
+    String memo;
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
 
     public Double getLatitude() {
         return latitude;

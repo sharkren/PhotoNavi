@@ -58,31 +58,37 @@ public class bookMarkContents extends Fragment {
         item[0].setAddress("강원도 강릉시 금학동 6");
         item[0].setLatitude(Double.valueOf("37.754245"));
         item[0].setLongitude(Double.valueOf("128.898323"));
+        item[0].setMemo("강원도 강릉시 금학동에 있는 해성횟집\n얼큰한 속풀이 알탕 끝내준다.\n해장때 마다 생각나는 집.");
 
         item[1] = new Recycler_item("http://olivem.co.kr/wp-content/uploads/2015/06/gangneung10.jpg","엄지네포장마차");
         item[1].setAddress("강원도 강릉시 옥천동 287-14");
         item[1].setLatitude(Double.valueOf("37.759293"));
         item[1].setLongitude(Double.valueOf("128.900576"));
+        item[1].setMemo("강원도 강릉시 옥천동에 있는 엄지네포장마차\n얼큰한 속풀이 알탕 끝내준다.\n해장때 마다 생각나는 집.");
 
         item[2] = new Recycler_item("http://img.seeon.kr/place/1352186283806893.JPG","장안횟집");
         item[2].setAddress("강릉시 사천면 사천진리 86-64");
         item[2].setLatitude(Double.valueOf("37.837627"));
         item[2].setLongitude(Double.valueOf("128.875313"));
+        item[2].setMemo("강릉시 사천면 사천진리에 있는 장안횟집\n얼큰한 속풀이 알탕 끝내준다.\n해장때 마다 생각나는 집.");
 
         item[3] = new Recycler_item("http://img.seeon.kr/place/KT1410_1000235.jpg","금학칼국수");
         item[3].setAddress("강원도 강릉시 임당동 122-2");
         item[3].setLatitude(Double.valueOf("37.754612"));
         item[3].setLongitude(Double.valueOf("128.896299"));
+        item[3].setMemo("강원도 강릉시 임당동에 있는 금학칼국수\n얼큰한 속풀이 알탕 끝내준다.\n해장때 마다 생각나는 집.");
 
         item[4] = new Recycler_item("https://pbs.twimg.com/media/B5tELNUIQAA8eeU.jpg","동화가든");
         item[4].setAddress("강원도 강릉시 초당동 352");
         item[4].setLatitude(Double.valueOf("37.791093"));
         item[4].setLongitude(Double.valueOf("128.914695"));
+        item[4].setMemo("강원도 강릉시 초당동에 있는 동화가든 \n얼큰한 속풀이 알탕 끝내준다 \n해장때 마다 생각나는 집");
 
         item[5] = new Recycler_item("http://static-a-timetree.zumst.com/cache/images/530x/?http%3A%2F%2Ftimetree.zumst.com%2F2014%2F01%2F27%2F16%2F031fbca8cdf74886bd1f68a844c22600.jpg","만석닭강정");
         item[5].setAddress("강원도 속초시 중앙동 471-9");
         item[5].setLatitude(Double.valueOf("38.204689"));
         item[5].setLongitude(Double.valueOf("128.590197"));
+        item[5].setMemo("강원도 속초시 중앙동에 있는 만석닭강정\n원조 닭강정의 위엄.\n먹고싶다.");
 
         for(int i = 0; i < item.length; i++)
             items.add(item[i]);

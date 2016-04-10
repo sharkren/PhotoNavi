@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,6 +57,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         //holder.contentImage.setImageBitmap(new ImageRoader().getBitmapImg("androidfigure.jpg"));
         holder.title.setText(item.getTitle());
         holder.location.setText(item.getAddress());
+        holder.etMemo.setText(item.getMemo());
 
         /////////////////////////////////////////////////////////////////////////
         // 이미지에서 위치정보 읽어오기
@@ -129,6 +131,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         CardView cardview;
         ImageButton imgBtnNavi;
         TextView tvNavi;
+        EditText etMemo;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -138,6 +141,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             location      = (TextView)itemView.findViewById(R.id.location);
             imgBtnNavi    = (ImageButton)itemView.findViewById(R.id.imgBtnNavi);
             tvNavi         = (TextView)itemView.findViewById(R.id.tvNavi);
+            etMemo         = (EditText)itemView.findViewById(R.id.etMemo);
+
         }
     }
 

@@ -63,7 +63,7 @@ public class BitmapWorkerTask extends AsyncTask<String, Void, Bitmap> {
             Log.d("Map", "Bitmap 이미지 OptionData OutWidth " + options.outWidth);
             Log.d("Map", "Bitmap 이미지 OptionData OutHeight " + options.outHeight);
 
-            int scale = 3;
+            int scale = 1;
 
             // 실제 이미지 메모리에 생성
             options.inJustDecodeBounds = false;
