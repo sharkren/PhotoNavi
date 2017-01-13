@@ -109,8 +109,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             Boolean bRouteYn = tmaptapi.invokeRoute(pItem.getAddress(),
                     new Float(pItem.getLongitude().toString()), new Float(pItem.getLatitude().toString()));
 
-            //Boolean bRouteYn = tmaptapi.invokeRoute("서울특별시 강남구 선릉로", new Float("127.04948557"), new Float("37.50365057"));
-
             if (bRouteYn == true) {
                 Log.d("Map", "경로 검색 성공");
             } else {

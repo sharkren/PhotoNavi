@@ -222,11 +222,11 @@ public class RegistActivity extends AppCompatActivity {
                                     - CalledFromWrongThreadException 발생 원인 -
                                     왜 다른스레드에서 UI를 변경하려고 하면 해당 예외가 발생하는지
                                     알아보자면 UI변경이 있게되면 안드로이드 뷰에서는 invalidate를
-                                    호출하게 되는데 여기서 보게 되면 invalidate()에서는 ViewParent의
-                                    invalidateChild()를 호출
-                                    invalidate()에서는 checkThread()를 호출합니다. checkThread()에서는
-                                    위와 같이 현재 실행중인 스레드가 ViewRoot가 가지고 있는 mThread와
-                                    참조가 같은지 비교하고 아니라면 CalledFromWrongThreadException 예외 발생
+                                    호출하게 되는데 여기서 보면 invalidate()에서는 ViewParent의
+                                    invalidateChild()를 호출 invalidate()에서는 checkThread()를 호출합니다.
+                                    checkThread()에서는 위와 같이 현재 실행중인 스레드가 ViewRoot가
+                                    가지고 있는 mThread와 참조가 같은지 비교하고 아니라면
+                                    CalledFromWrongThreadException 예외 발생
                                     http://csjung.tistory.com/153
                                      */
                                     new Thread(new Runnable() {
