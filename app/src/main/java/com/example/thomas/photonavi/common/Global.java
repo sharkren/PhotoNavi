@@ -40,7 +40,7 @@ public class Global {
     public static final int RESULT_CODE_SIGN            = 62;
     public static final int RESULT_CODE_DAMAGE          = 63;
     public static final int RESULT_CODE_IMG_UPLOAD      = 64;
-
+    public static final int TEST                        = 99;
     public static final int JSON_GPS                    = 80;
     public static final int JSON_SIGN                   = 81;
     public static final int JSON_DAMAGE                 = 82;
