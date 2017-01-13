@@ -16,7 +16,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.thomas.photonavi.activity.ContentsActivity;
 import com.skp.Tmap.TMapTapi;
 
 import com.kakao.kakaonavi.KakaoNaviParams;
