@@ -1,10 +1,13 @@
 package com.example.thomas.photonavi;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.thomas.photonavi.activity.ContentsActivity;
 import com.skp.Tmap.TMapTapi;
 
 import com.kakao.kakaonavi.KakaoNaviParams;
@@ -86,34 +90,61 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             @Override
             public void onClick(View view) {
-                getPath(item);
+                openNavigation(item);
             }
         });
 
         holder.tvNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getPath(item);
+                openNavigation(item);
             }
         });
     }
 
     /**
-     * Tmap Navigation 호출
+     * Navigation 호출
      */
-    protected void getPath(Recycler_item pItem) {
+    protected void openNavigation(final Recycler_item pItem) {
+
+        // 처음 로그인 했다면 새로운 친구가 찾아 추가할지 팝업 호출
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+        builder.setTitle("PORK 알림")
+                .setMessage("네비게이션을 선택해주세요")
+                .setCancelable(false)
+                .setPositiveButton("Tmap", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        openTmap(pItem);
+                        dialogInterface.cancel();
+                    }
+                })
+                .setNeutralButton("Kakao Navi", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        openKakao(pItem);
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public int getItemCount() {
+        return this.items.size();
+    }
+
+    private void openTmap(Recycler_item pItem) {
 
         TMapTapi tmaptapi = new TMapTapi(view.getContext());
         tmaptapi.setSKPMapAuthentication("ff33d858-1d53-32c3-b1f5-1ae138b8f399");
 
-        Location destination = Location.newBuilder("카카오 판교 오피스", 127.10821222694533, 37.40205604363057).build();
 
-        KakaoNaviParams.Builder builder = KakaoNaviParams.newBuilder(destination)
-                .setNaviOptions(NaviOptions.newBuilder().setCoordType(CoordType.WGS84).build());
-
-        KakaoNaviService.shareDestination(view.getContext(), builder.build());
-
-        /*if (pItem.getLatitude() == null || pItem.getLongitude() == null) {
+        if (pItem.getLatitude() == null || pItem.getLongitude() == null) {
             Log.d("Map", "위도 / 경도 정보가 없음.");
         }
         else {
@@ -126,12 +157,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             } else {
                 Log.d("Map", "경로 검색 실패");
             }
-        }*/
+        }
     }
 
-    @Override
-    public int getItemCount() {
-        return this.items.size();
+    private void openKakao(Recycler_item pItem) {
+        Location destination = Location.newBuilder(pItem.getAddress(), Double.valueOf(pItem.getLongitude().toString()),
+                Double.valueOf(pItem.getLatitude().toString())).build();
+
+        KakaoNaviParams.Builder builder = KakaoNaviParams.newBuilder(destination)
+                .setNaviOptions(NaviOptions.newBuilder().setCoordType(CoordType.WGS84).build());
+
+        KakaoNaviService.shareDestination(view.getContext(), builder.build());
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
