@@ -11,12 +11,15 @@ public class Global {
     /****** Server Url ****************************************************************************/
 
 
-
+    public static final String REST_AIP_URL = "http://192.168.25.25:8080/pork/api/";
+    public static final String USER_LOGIN = "userLogin.do";
+    public static final String JOIN_USER = "joinUser.do";
     /****** Setting  ******************************************************************************/
 
     public static final String FILE_NAME                = "intent_file.txt";
     public static final String PREFIX_JPG               = ".jpg";
     public static final String PREFIX_PNG               = ".png";
+    public static final String STATUS_OK                = "0000";
 
     public static final int ALERT_ERR                   = 1;
 

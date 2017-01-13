@@ -15,8 +15,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.thomas.photonavi.R;
+import com.example.thomas.photonavi.common.Global;
 import com.example.thomas.photonavi.service.RestApiClient;
 
 import org.json.JSONException;
@@ -80,15 +82,24 @@ public class MemberActivity extends AppCompatActivity {
                 // 회원가입 API 호출
                 JSONObject jsonObject = makeParam();
 
-                RestApiClient restApiClient = null;
+                /*RestApiClient restApiClient = null;
                 try {
                     restApiClient = new RestApiClient();
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
-                }
+                }*/
 
-                String retMsg = "0000";
-                retMsg = restApiClient.restApiCall(getApplication(), jsonObject, "joinUser.do");
+                try {
+                    JSONObject retMsg = new JSONObject();
+                    retMsg = RestApiClient.restApiCall(getApplication(), jsonObject, "joinUser.do");
+                    retMsg.put("retCode", Global.STATUS_OK);
+                    if (Global.STATUS_OK.equals(retMsg.get("retCode"))) {
+                        Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         });

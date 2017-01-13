@@ -63,27 +63,32 @@ public class LoginActivity extends Activity {
                     e.printStackTrace();
                 }
 
-//                RestApiClient restApiClient = null;
-//                try {
-//                    restApiClient = new RestApiClient();
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
-//                }
+                /*RestApiClient restApiClient = null;
+                try {
+                    restApiClient = new RestApiClient();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }*/
 
-                String retMsg = "0000";
-                //retMsg = restApiClient.restApiCall(getApplication(), jsonObject, "userLogin.do");
+                JSONObject retMsg = new JSONObject();//RestApiClient.restApiCall(getApplication(), jsonObject, "userLogin.do");
+                try {
 
-                // 컨탠츠 화면으로 이동동
-                if (retMsg == "0000") {
+                    retMsg.put("retCode",Global.STATUS_OK);
+                    // 컨탠츠 화면으로 이동동
+                    if (Global.STATUS_OK.equals(retMsg.get("retCode"))) {
 
-                    // 전화번호 목록으로 친구목록 현행화 최초 1회
-                    MyPhoneNumList mpnList = new MyPhoneNumList(LoginActivity.this);
-                    mpnList.run();
+                        // 전화번호 목록으로 친구목록 현행화 최초 1회
+                        MyPhoneNumList mpnList = new MyPhoneNumList(LoginActivity.this);
+                        mpnList.run();
 
-                    startActivity(new Intent(getApplication(), ContentsActivity.class)); // 로딩이 끝난후 이동할 Activity
-                    //startActivity(new Intent(getApplication(), MainActivity.class)); // 로딩이 끝난후 이동할 Activity
-                    LoginActivity.this.finish();
+                        startActivity(new Intent(getApplication(), ContentsActivity.class)); // 로딩이 끝난후 이동할 Activity
+                        //startActivity(new Intent(getApplication(), MainActivity.class)); // 로딩이 끝난후 이동할 Activity
+                        LoginActivity.this.finish();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
             }
         });
 
