@@ -148,6 +148,9 @@
             android:value="@integer/google_play_services_version" />
         <!-- [END gcm_registration_service] -->
 
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
     </application>
 
 </manifest>

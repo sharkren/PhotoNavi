@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skp.Tmap.TMapTapi;
+
+import com.kakao.kakaonavi.KakaoNaviParams;
+import com.kakao.kakaonavi.KakaoNaviService;
+import com.kakao.kakaonavi.Location;
+import com.kakao.kakaonavi.NaviOptions;
+import com.kakao.kakaonavi.options.CoordType;
 
 import java.util.List;
 
@@ -101,7 +106,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         TMapTapi tmaptapi = new TMapTapi(view.getContext());
         tmaptapi.setSKPMapAuthentication("ff33d858-1d53-32c3-b1f5-1ae138b8f399");
 
-        if (pItem.getLatitude() == null || pItem.getLongitude() == null) {
+        Location destination = Location.newBuilder("카카오 판교 오피스", 127.10821222694533, 37.40205604363057).build();
+
+        KakaoNaviParams.Builder builder = KakaoNaviParams.newBuilder(destination)
+                .setNaviOptions(NaviOptions.newBuilder().setCoordType(CoordType.WGS84).build());
+
+        KakaoNaviService.shareDestination(view.getContext(), builder.build());
+
+        /*if (pItem.getLatitude() == null || pItem.getLongitude() == null) {
             Log.d("Map", "위도 / 경도 정보가 없음.");
         }
         else {
@@ -114,7 +126,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             } else {
                 Log.d("Map", "경로 검색 실패");
             }
-        }
+        }*/
     }
 
     @Override

@@ -55,5 +55,8 @@ public class Global {
 
     /**********************************************************************************************/
 
-
+/*
+https://developers.kakao.com/docs/android#시작하기-앱-생성
+https://developers.kakao.com/apps/116671/settings/general
+ */
 }

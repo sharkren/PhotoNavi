@@ -64,4 +64,7 @@
     <string name="title_activity_regist_text">RegistTextActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_setting">SettingActivity</string>
+
+    <string name="kakao_app_key">edbc03bcbc1834f050924119afe65aa1</string>
+
 </resources>

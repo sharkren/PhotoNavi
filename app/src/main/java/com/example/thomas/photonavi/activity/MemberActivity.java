@@ -80,7 +80,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //onBackPressed();
                 // 회원가입 API 호출
-                JSONObject jsonObject = makeParam();
+                JSONObject paramJson = makeParam();
 
                 /*RestApiClient restApiClient = null;
                 try {
@@ -90,8 +90,7 @@ public class MemberActivity extends AppCompatActivity {
                 }*/
 
                 try {
-                    JSONObject retMsg = new JSONObject();
-                    retMsg = RestApiClient.restApiCall(getApplication(), jsonObject, "joinUser.do");
+                    JSONObject retMsg = RestApiClient.restApiCall(getApplication(), paramJson, Global.JOIN_USER);
                     retMsg.put("retCode", Global.STATUS_OK);
                     if (Global.STATUS_OK.equals(retMsg.get("retCode"))) {
                         Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();

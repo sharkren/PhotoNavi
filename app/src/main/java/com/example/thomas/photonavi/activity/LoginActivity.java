@@ -55,10 +55,10 @@ public class LoginActivity extends Activity {
                 String pwd = etPassword.getText().toString();
 
                 // 로그인 체크
-                JSONObject jsonObject = new JSONObject();
+                JSONObject paramJson = new JSONObject();
                 try {
-                    jsonObject.put("email", email);
-                    jsonObject.put("pwd", pwd);
+                    paramJson.put("email", email);
+                    paramJson.put("pwd", pwd);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -70,7 +70,7 @@ public class LoginActivity extends Activity {
                     e.printStackTrace();
                 }*/
 
-                JSONObject retMsg = new JSONObject();//RestApiClient.restApiCall(getApplication(), jsonObject, "userLogin.do");
+                JSONObject retMsg = new JSONObject();//RestApiClient.restApiCall(getApplication(), paramJson, Global.USER_LOGIN);
                 try {
 
                     retMsg.put("retCode",Global.STATUS_OK);
